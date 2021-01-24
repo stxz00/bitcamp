@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>sqq2234324234</title>
+<title>master</title>
 </head>
 <body>
-
+	<%="master" %>
 </body>
 </html>
