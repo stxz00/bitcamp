@@ -8,11 +8,8 @@
 </head>
 <body>
 	<%="master" %>
-
-	<%="test02" %>
-
-
 	<%="test01" %>
+	<%="test02" %>
 
 </body>
 </html>
