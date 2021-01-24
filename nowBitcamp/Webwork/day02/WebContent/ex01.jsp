@@ -8,5 +8,7 @@
 </head>
 <body>
 	<%="master" %>
+
+	<%="test01" %>
 </body>
 </html>
