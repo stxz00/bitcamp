@@ -1,0 +1,10 @@
+package com.bit.day07;
+
+public class Ex11 {
+	public static void main(String[] args) {
+		Radio obj = new Radio();
+		obj.on();
+		obj.work();
+		obj.off();
+	}
+}

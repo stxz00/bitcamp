@@ -1,0 +1,18 @@
+Q1. 급여가 3000 이상인 사원만 급여를 10% 인상
+Q2. 1987년에 입사한 입사자의 입사일을 오늘로 수정
+Q3. 부서번호가 10번인 사원의 부서번호를 30번으로 수정
+
+
+
+
+
+
+select empno,ename,sal from emp;
+
+Q1.  update emp set sal=sal*1.1 where sal>=3000;
+Q2.  select ename, hiredate from emp where hiredate='1987/01/01';
+      update emp set hiredate='sysdate' where hiredate='1987/01/01';
+      update emp set hiredate=sysdate;(오늘 날짜를 알려주는 sysdate로 수정)
+Q3. select ename, deptno from emp whrere deptno=10;
+     select ename, deptno from emp where deptnoo=30;
+

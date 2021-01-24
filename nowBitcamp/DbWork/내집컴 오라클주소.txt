@@ -1,0 +1,8 @@
+내 집컴
+
+대상 폴더:C:\oraclexe\
+'Oracle Database Listener'용 포트:1521
+'Oracle Services for Microsoft Transaction Server'용 포트:2030
+HTTP 리스너용 포트:8080
+
+http://127.0.0.1:8080/apex/

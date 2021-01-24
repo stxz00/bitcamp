@@ -1,0 +1,2 @@
+DELETE
+delete from dept where deptno>50;

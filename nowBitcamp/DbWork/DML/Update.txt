@@ -1,0 +1,8 @@
+UPDATE : 수정
+------------------------------------------------------------------------
+update dept set loc='대구' where deptno=70;
+update dept set loc='zz', dname='z' where deptno=70;
+update dept set loc='사고'; //loc를 아예 다 바꿈 이래서 초보한테 권한 절대 안 줌
+★삭제는 어느정도 복구 가능성이 있으나 수정은 복구가 심하게 어려움
+update dept set loc='사고2' where dname like '__';
+------------------------------------------------------------------------

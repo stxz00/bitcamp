@@ -1,0 +1,22 @@
+package com.bit.ex05;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class WebServer {
+	
+	public static void main(String[] args) {
+		ServerSocket serv = null;
+		
+		try {
+			serv = new ServerSocket(5000);
+			System.out.println("立加措扁...");
+			serv.accept();
+			System.out.println("立加凳");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

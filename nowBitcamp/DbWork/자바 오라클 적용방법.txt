@@ -1,0 +1,9 @@
+자바 프로젝트 추가 창 띄우고
+넥스트 누르고
+세번째 라이브러리에
+add external path
+하고 
+C:\oraclexe\app\oracle\product\10.2.0\server\jdbc\lib
+add external jars
+하기
+

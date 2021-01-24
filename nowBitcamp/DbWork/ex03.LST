@@ -1,0 +1,774 @@
+SQL> select * from dept where deptno=10;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        10 ACCOUNTING                   NEW YORK                                
+
+SQL> select * from dept where deptno=20;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        20 RESEARCH                     DALLAS                                  
+
+SQL> select * from dept where deptno=30;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        30 SALES                        CHICAGO                                 
+
+SQL> select * from dept where deptno=10;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        10 ACCOUNTING                   NEW YORK                                
+
+SQL> select * from dept where deptno=20;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        20 RESEARCH                     DALLAS                                  
+
+SQL> select * from dept where deptno=30;cls
+  2  cls
+  3  
+SQL> 
+SQL> cls
+SP2-0042: 알 수 없는 명령어 "cls" - 나머지 줄 무시.
+SQL> select * from dept where deptno=10;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        10 ACCOUNTING                   NEW YORK                                
+
+SQL> select * from dept where deptno=20;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        20 RESEARCH                     DALLAS                                  
+
+SQL> select * from dept where deptno=30;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        30 SALES                        CHICAGO                                 
+
+SQL> SET HEADING OFF
+SQL> select * from dept where deptno=30;
+
+        30 SALES                        CHICAGO                                 
+
+SQL> SET HEADING ON
+SQL> select * from dept where deptno=30;
+
+    DEPTNO DNAME                        LOC                                     
+---------- ---------------------------- --------------------------              
+        30 SALES                        CHICAGO                                 
+
+SQL> select empno, ename from emp;
+
+     EMPNO ENAME                                                                
+---------- --------------------                                                 
+      7369 SMITH                                                                
+      7499 ALLEN                                                                
+      7521 WARD                                                                 
+      7566 JONES                                                                
+      7654 MARTIN                                                               
+      7698 BLAKE                                                                
+      7782 CLARK                                                                
+      7788 SCOTT                                                                
+      7839 KING                                                                 
+      7844 TURNER                                                               
+      7876 ADAMS                                                                
+
+     EMPNO ENAME                                                                
+---------- --------------------                                                 
+      7900 JAMES                                                                
+      7902 FORD                                                                 
+      7934 MILLER                                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SET PAGESIZE 16
+SQL> 
+SQL> select empno, ename from emp;
+
+     EMPNO ENAME                                                                
+---------- --------------------                                                 
+      7369 SMITH                                                                
+      7499 ALLEN                                                                
+      7521 WARD                                                                 
+      7566 JONES                                                                
+      7654 MARTIN                                                               
+      7698 BLAKE                                                                
+      7782 CLARK                                                                
+      7788 SCOTT                                                                
+      7839 KING                                                                 
+      7844 TURNER                                                               
+      7876 ADAMS                                                                
+      7900 JAMES                                                                
+      7902 FORD                                                                 
+
+     EMPNO ENAME                                                                
+---------- --------------------                                                 
+      7934 MILLER                                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> SET PAGESIZE 18
+SQL> select empno, ename from emp;
+
+     EMPNO ENAME                                                                
+---------- --------------------                                                 
+      7369 SMITH                                                                
+      7499 ALLEN                                                                
+      7521 WARD                                                                 
+      7566 JONES                                                                
+      7654 MARTIN                                                               
+      7698 BLAKE                                                                
+      7782 CLARK                                                                
+      7788 SCOTT                                                                
+      7839 KING                                                                 
+      7844 TURNER                                                               
+      7876 ADAMS                                                                
+      7900 JAMES                                                                
+      7902 FORD                                                                 
+      7934 MILLER                                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> SET LINESIZE 150
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME                                                                                                                                      
+---------- --------------------                                                                                                                       
+      7369 SMITH                                                                                                                                      
+      7499 ALLEN                                                                                                                                      
+      7521 WARD                                                                                                                                       
+      7566 JONES                                                                                                                                      
+      7654 MARTIN                                                                                                                                     
+      7698 BLAKE                                                                                                                                      
+      7782 CLARK                                                                                                                                      
+      7788 SCOTT                                                                                                                                      
+      7839 KING                                                                                                                                       
+      7844 TURNER                                                                                                                                     
+      7876 ADAMS                                                                                                                                      
+      7900 JAMES                                                                                                                                      
+      7902 FORD                                                                                                                                       
+      7934 MILLER                                                                                                                                     
+
+14 개의 행이 선택되었습니다.
+
+SQL> column ename;
+SP2-0046: COLUMN 'ename'이(가) 정의되지 않았습니다.
+SQL> column ename format a7
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME                                                                                                                                      
+---------- -------                                                                                                                                    
+      7369 SMITH                                                                                                                                      
+      7499 ALLEN                                                                                                                                      
+      7521 WARD                                                                                                                                       
+      7566 JONES                                                                                                                                      
+      7654 MARTIN                                                                                                                                     
+      7698 BLAKE                                                                                                                                      
+      7782 CLARK                                                                                                                                      
+      7788 SCOTT                                                                                                                                      
+      7839 KING                                                                                                                                       
+      7844 TURNER                                                                                                                                     
+      7876 ADAMS                                                                                                                                      
+      7900 JAMES                                                                                                                                      
+      7902 FORD                                                                                                                                       
+      7934 MILLER                                                                                                                                     
+
+14 개의 행이 선택되었습니다.
+
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME                                                                                                                                      
+---------- -------                                                                                                                                    
+      7369 SMITH                                                                                                                                      
+      7499 ALLEN                                                                                                                                      
+      7521 WARD                                                                                                                                       
+      7566 JONES                                                                                                                                      
+      7654 MARTIN                                                                                                                                     
+      7698 BLAKE                                                                                                                                      
+      7782 CLARK                                                                                                                                      
+      7788 SCOTT                                                                                                                                      
+      7839 KING                                                                                                                                       
+      7844 TURNER                                                                                                                                     
+      7876 ADAMS                                                                                                                                      
+      7900 JAMES                                                                                                                                      
+      7902 FORD                                                                                                                                       
+      7934 MILLER                                                                                                                                     
+
+14 개의 행이 선택되었습니다.
+
+SQL> select * from emp;
+
+     EMPNO ENAME   JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                            
+---------- ------- ------------------ ---------- -------- ---------- ---------- ----------                                                            
+      7369 SMITH   CLERK                    7902 80/12/17        800                    20                                                            
+      7499 ALLEN   SALESMAN                 7698 81/02/20       1600        300         30                                                            
+      7521 WARD    SALESMAN                 7698 81/02/22       1250        500         30                                                            
+      7566 JONES   MANAGER                  7839 81/04/02       2975                    20                                                            
+      7654 MARTIN  SALESMAN                 7698 81/09/28       1250       1400         30                                                            
+      7698 BLAKE   MANAGER                  7839 81/05/01       2850                    30                                                            
+      7782 CLARK   MANAGER                  7839 81/06/09       2450                    10                                                            
+      7788 SCOTT   ANALYST                  7566 87/04/19       3000                    20                                                            
+      7839 KING    PRESIDENT                     81/11/17       5000                    10                                                            
+      7844 TURNER  SALESMAN                 7698 81/09/08       1500          0         30                                                            
+      7876 ADAMS   CLERK                    7788 87/05/23       1100                    20                                                            
+      7900 JAMES   CLERK                    7698 81/12/03        950                    30                                                            
+      7902 FORD    ANALYST                  7566 81/12/03       3000                    20                                                            
+      7934 MILLER  CLERK                    7782 82/01/23       1300                    10                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> column sal format 0,000
+SQL> select * from emp;
+
+     EMPNO ENAME   JOB                       MGR HIREDATE    SAL       COMM     DEPTNO                                                                
+---------- ------- ------------------ ---------- -------- ------ ---------- ----------                                                                
+      7369 SMITH   CLERK                    7902 80/12/17  0,800                    20                                                                
+      7499 ALLEN   SALESMAN                 7698 81/02/20  1,600        300         30                                                                
+      7521 WARD    SALESMAN                 7698 81/02/22  1,250        500         30                                                                
+      7566 JONES   MANAGER                  7839 81/04/02  2,975                    20                                                                
+      7654 MARTIN  SALESMAN                 7698 81/09/28  1,250       1400         30                                                                
+      7698 BLAKE   MANAGER                  7839 81/05/01  2,850                    30                                                                
+      7782 CLARK   MANAGER                  7839 81/06/09  2,450                    10                                                                
+      7788 SCOTT   ANALYST                  7566 87/04/19  3,000                    20                                                                
+      7839 KING    PRESIDENT                     81/11/17  5,000                    10                                                                
+      7844 TURNER  SALESMAN                 7698 81/09/08  1,500          0         30                                                                
+      7876 ADAMS   CLERK                    7788 87/05/23  1,100                    20                                                                
+      7900 JAMES   CLERK                    7698 81/12/03  0,950                    30                                                                
+      7902 FORD    ANALYST                  7566 81/12/03  3,000                    20                                                                
+      7934 MILLER  CLERK                    7782 82/01/23  1,300                    10                                                                
+
+14 개의 행이 선택되었습니다.
+
+SQL> column deptno clear
+SP2-0046: COLUMN 'deptno'이(가) 정의되지 않았습니다.
+SQL> column sal clear
+SQL> column sal ename;
+SP2-0158: 알 수 없는 COLUMN 옵션 "ename"
+SQL> column sal ename
+SP2-0158: 알 수 없는 COLUMN 옵션 "ename"
+SQL> column ename clear
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 영업                         부산                                                                                                          
+        10 ACCOUNTING                   NEW YORK                                                                                                      
+        20 RESEARCH                     DALLAS                                                                                                        
+        30 SALES                        CHICAGO                                                                                                       
+        40 OPERATIONS                   BOSTON                                                                                                        
+        80 영업                         대구                                                                                                          
+
+6 개의 행이 선택되었습니다.
+
+SQL> insert into dept (deptno, dname, loc) values(51,'aa','bb');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept (deptno, dname, loc) values(52,'cc','null');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept (deptno, dname, loc) values(53,'dd','');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept where loc is null;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        53 dd                                                                                                                                         
+
+SQL> insert into dept (deptno, dname, loc) values(52,'cc','null');
+insert into dept (deptno, dname, loc) values(52,'cc','null')
+*
+1행에 오류:
+ORA-00001: 무결성 제약 조건(SCOTT.PK_DEPT)에 위배됩니다 
+
+
+SQL> insert into dept (deptno, dname, loc) values(52,'cc',null);
+insert into dept (deptno, dname, loc) values(52,'cc',null)
+*
+1행에 오류:
+ORA-00001: 무결성 제약 조건(SCOTT.PK_DEPT)에 위배됩니다 
+
+
+SQL> insert into dept (deptno, dname, loc) values(552,'cc',null);
+insert into dept (deptno, dname, loc) values(552,'cc',null)
+                                             *
+1행에 오류:
+ORA-01438: 이 열에 대해 지정된 전체 자릿수보다 큰 값이 허용됩니다. 
+
+
+SQL> insert into dept (deptno, dname, loc) values(92,'cc',null);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept where loc is null;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+
+SQL> insert into dept (deptno, dname, loc) values('53','ee','ee');
+insert into dept (deptno, dname, loc) values('53','ee','ee')
+*
+1행에 오류:
+ORA-00001: 무결성 제약 조건(SCOTT.PK_DEPT)에 위배됩니다 
+
+
+SQL> insert into dept (deptno, dname, loc) values('93','ee','ee');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into dept (deptno, dname, loc) values('54','ee','ee');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept where loc is null;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 영업                         부산                                                                                                          
+        10 ACCOUNTING                   NEW YORK                                                                                                      
+        20 RESEARCH                     DALLAS                                                                                                        
+        30 SALES                        CHICAGO                                                                                                       
+        40 OPERATIONS                   BOSTON                                                                                                        
+        80 영업                         대구                                                                                                          
+        51 aa                           bb                                                                                                            
+        52 cc                           null                                                                                                          
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+        93 ee                           ee                                                                                                            
+        54 ee                           ee                                                                                                            
+
+12 개의 행이 선택되었습니다.
+
+SQL> insert into dept values('55','ii','jj');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 영업                         부산                                                                                                          
+        10 ACCOUNTING                   NEW YORK                                                                                                      
+        20 RESEARCH                     DALLAS                                                                                                        
+        30 SALES                        CHICAGO                                                                                                       
+        40 OPERATIONS                   BOSTON                                                                                                        
+        80 영업                         대구                                                                                                          
+        51 aa                           bb                                                                                                            
+        52 cc                           null                                                                                                          
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+        93 ee                           ee                                                                                                            
+        54 ee                           ee                                                                                                            
+        55 ii                           jj                                                                                                            
+
+13 개의 행이 선택되었습니다.
+
+SQL> insert into dept (loc,deptno, dname) values('xx',57,'yy');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 영업                         부산                                                                                                          
+        10 ACCOUNTING                   NEW YORK                                                                                                      
+        20 RESEARCH                     DALLAS                                                                                                        
+        30 SALES                        CHICAGO                                                                                                       
+        40 OPERATIONS                   BOSTON                                                                                                        
+        80 영업                         대구                                                                                                          
+        51 aa                           bb                                                                                                            
+        52 cc                           null                                                                                                          
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+        93 ee                           ee                                                                                                            
+        54 ee                           ee                                                                                                            
+        55 ii                           jj                                                                                                            
+        57 yy                           xx                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> update dept set loc='대구' where deptno=70;
+
+1 행이 갱신되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 영업                         대구                                                                                                          
+        10 ACCOUNTING                   NEW YORK                                                                                                      
+        20 RESEARCH                     DALLAS                                                                                                        
+        30 SALES                        CHICAGO                                                                                                       
+        40 OPERATIONS                   BOSTON                                                                                                        
+        80 영업                         대구                                                                                                          
+        51 aa                           bb                                                                                                            
+        52 cc                           null                                                                                                          
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+        93 ee                           ee                                                                                                            
+        54 ee                           ee                                                                                                            
+        55 ii                           jj                                                                                                            
+        57 yy                           xx                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> update dept set loc='zz', dname='z' where deptno=70;
+
+1 행이 갱신되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 z                            zz                                                                                                            
+        10 ACCOUNTING                   NEW YORK                                                                                                      
+        20 RESEARCH                     DALLAS                                                                                                        
+        30 SALES                        CHICAGO                                                                                                       
+        40 OPERATIONS                   BOSTON                                                                                                        
+        80 영업                         대구                                                                                                          
+        51 aa                           bb                                                                                                            
+        52 cc                           null                                                                                                          
+        53 dd                                                                                                                                         
+        92 cc                                                                                                                                         
+        93 ee                           ee                                                                                                            
+        54 ee                           ee                                                                                                            
+        55 ii                           jj                                                                                                            
+        57 yy                           xx                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> update dept set loc='사고';
+
+14 행이 갱신되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 z                            사고                                                                                                          
+        10 ACCOUNTING                   사고                                                                                                          
+        20 RESEARCH                     사고                                                                                                          
+        30 SALES                        사고                                                                                                          
+        40 OPERATIONS                   사고                                                                                                          
+        80 영업                         사고                                                                                                          
+        51 aa                           사고                                                                                                          
+        52 cc                           사고                                                                                                          
+        53 dd                           사고                                                                                                          
+        92 cc                           사고                                                                                                          
+        93 ee                           사고                                                                                                          
+        54 ee                           사고                                                                                                          
+        55 ii                           사고                                                                                                          
+        57 yy                           사고                                                                                                          
+
+14 개의 행이 선택되었습니다.
+
+SQL> update dept set loc='사고2' where deptno%2=0;
+update dept set loc='사고2' where deptno%2=0
+                                          *
+1행에 오류:
+ORA-00911: 문자가 부적합합니다 
+
+
+SQL> update dept set loc='사고2' where deptno like "__";
+update dept set loc='사고2' where deptno like "__"
+                                                *
+1행에 오류:
+ORA-00904: "__": 부적합한 식별자 
+
+
+SQL> 
+SQL> update dept set loc='사고2' where deptno like '__';
+
+14 행이 갱신되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        70 z                            사고2                                                                                                         
+        10 ACCOUNTING                   사고2                                                                                                         
+        20 RESEARCH                     사고2                                                                                                         
+        30 SALES                        사고2                                                                                                         
+        40 OPERATIONS                   사고2                                                                                                         
+        80 영업                         사고2                                                                                                         
+        51 aa                           사고2                                                                                                         
+        52 cc                           사고2                                                                                                         
+        53 dd                           사고2                                                                                                         
+        92 cc                           사고2                                                                                                         
+        93 ee                           사고2                                                                                                         
+        54 ee                           사고2                                                                                                         
+        55 ii                           사고2                                                                                                         
+        57 yy                           사고2                                                                                                         
+
+14 개의 행이 선택되었습니다.
+
+SQL> update dept set loc='사고';
+
+14 행이 갱신되었습니다.
+
+SQL> update dept set loc='사고2' where dname like '__';
+
+9 행이 갱신되었습니다.
+
+SQL> delete from dept where deptno>50;
+
+10 행이 삭제되었습니다.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        10 ACCOUNTING                   사고                                                                                                          
+        20 RESEARCH                     사고                                                                                                          
+        30 SALES                        사고                                                                                                          
+        40 OPERATIONS                   사고                                                                                                          
+
+SQL> select * from dept;
+
+    DEPTNO DNAME                        LOC                                                                                                           
+---------- ---------------------------- --------------------------                                                                                    
+        10 ACCOUNTING                   사고                                                                                                          
+        20 RESEARCH                     사고                                                                                                          
+        30 SALES                        사고                                                                                                          
+        40 OPERATIONS                   사고                                                                                                          
+
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> select sal+110% from emp where sal>=3000;
+select sal+110% from emp where sal>=3000
+              *
+1행에 오류:
+ORA-00911: 문자가 부적합합니다 
+
+
+SQL> select sal*110% from emp where sal>=3000;
+select sal*110% from emp where sal>=3000
+              *
+1행에 오류:
+ORA-00911: 문자가 부적합합니다 
+
+
+SQL> update emp set sal=sal*110% where sal>=3000;
+update emp set sal=sal*110% where sal>=3000
+                          *
+1행에 오류:
+ORA-00911: 문자가 부적합합니다 
+
+
+SQL> update emp set sal=sal*110/100 where sal>=3000;
+
+3 행이 갱신되었습니다.
+
+SQL> select * from emp where sal>=3000;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3300                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5500                    10                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3300                    20                                               
+
+SQL> update emp set hiredate='21/01/20';
+
+14 행이 갱신되었습니다.
+
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 21/01/20        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 21/01/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 21/01/20       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 21/01/20       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 21/01/20       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 21/01/20       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 21/01/20       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 21/01/20       3300                    20                                               
+      7839 KING                 PRESIDENT                     21/01/20       5500                    10                                               
+      7844 TURNER               SALESMAN                 7698 21/01/20       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 21/01/20       1100                    20                                               
+      7900 JAMES                CLERK                    7698 21/01/20        950                    30                                               
+      7902 FORD                 ANALYST                  7566 21/01/20       3300                    20                                               
+      7934 MILLER               CLERK                    7782 21/01/20       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> update emp set deptno=30 where deptno=10;
+
+3 행이 갱신되었습니다.
+
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 21/01/20        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 21/01/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 21/01/20       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 21/01/20       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 21/01/20       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 21/01/20       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 21/01/20       2450                    30                                               
+      7788 SCOTT                ANALYST                  7566 21/01/20       3300                    20                                               
+      7839 KING                 PRESIDENT                     21/01/20       5500                    30                                               
+      7844 TURNER               SALESMAN                 7698 21/01/20       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 21/01/20       1100                    20                                               
+      7900 JAMES                CLERK                    7698 21/01/20        950                    30                                               
+      7902 FORD                 ANALYST                  7566 21/01/20       3300                    20                                               
+      7934 MILLER               CLERK                    7782 21/01/20       1300                    30                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> select empno,ename,sal from emp;
+
+     EMPNO ENAME                       SAL                                                                                                            
+---------- -------------------- ----------                                                                                                            
+      7369 SMITH                       800                                                                                                            
+      7499 ALLEN                      1600                                                                                                            
+      7521 WARD                       1250                                                                                                            
+      7566 JONES                      2975                                                                                                            
+      7654 MARTIN                     1250                                                                                                            
+      7698 BLAKE                      2850                                                                                                            
+      7782 CLARK                      2450                                                                                                            
+      7788 SCOTT                      3300                                                                                                            
+      7839 KING                       5500                                                                                                            
+      7844 TURNER                     1500                                                                                                            
+      7876 ADAMS                      1100                                                                                                            
+      7900 JAMES                       950                                                                                                            
+      7902 FORD                       3300                                                                                                            
+      7934 MILLER                     1300                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> select emp set hiredate = '2021/01/20' where hiredate>='1987/01/01'
+  2  ;
+select emp set hiredate = '2021/01/20' where hiredate>='1987/01/01'
+           *
+1행에 오류:
+ORA-00936: 누락된 표현식 
+
+
+SQL> select hiredate = '2021/01/20' from emp where hiredate>='1987/01/01'
+  2  ;
+select hiredate = '2021/01/20' from emp where hiredate>='1987/01/01'
+                *
+1행에 오류:
+ORA-00923: FROM 키워드가 필요한 위치에 없습니다. 
+
+
+SQL> select hiredate='2021/01/20' from emp where hiredate>='1987/01/01';
+select hiredate='2021/01/20' from emp where hiredate>='1987/01/01'
+               *
+1행에 오류:
+ORA-00923: FROM 키워드가 필요한 위치에 없습니다. 
+
+
+SQL> select ename, hiredate from emp where hiredate>='1987/01/01';
+
+ENAME                HIREDATE                                                                                                                         
+-------------------- --------                                                                                                                         
+SMITH                21/01/20                                                                                                                         
+ALLEN                21/01/20                                                                                                                         
+WARD                 21/01/20                                                                                                                         
+JONES                21/01/20                                                                                                                         
+MARTIN               21/01/20                                                                                                                         
+BLAKE                21/01/20                                                                                                                         
+CLARK                21/01/20                                                                                                                         
+SCOTT                21/01/20                                                                                                                         
+KING                 21/01/20                                                                                                                         
+TURNER               21/01/20                                                                                                                         
+ADAMS                21/01/20                                                                                                                         
+JAMES                21/01/20                                                                                                                         
+FORD                 21/01/20                                                                                                                         
+MILLER               21/01/20                                                                                                                         
+
+14 개의 행이 선택되었습니다.
+
+SQL> update emp set hiredate=sysdate;
+
+14 행이 갱신되었습니다.
+
+SQL> exit

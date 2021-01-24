@@ -1,0 +1,18 @@
+package com.bit.day04;
+
+class Ex06{
+	public static void func01(){
+		System.out.println("static-method...");
+	}
+
+	// 그냥 호출 시 오류
+	public void func02(){
+		System.out.println("non-static method...");
+	}
+		
+	public static void main(String[] args){
+		func01(); // Ex06.func01();
+		func02();
+	} // main end
+	
+} // class end

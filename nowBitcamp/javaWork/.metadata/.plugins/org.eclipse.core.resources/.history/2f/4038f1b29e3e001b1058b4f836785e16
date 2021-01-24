@@ -1,0 +1,24 @@
+package com.bit;
+
+public class Ex102{
+	public int su1 = 1111;
+	int su2 = 2222;
+	private int su3 = 3333;
+		
+	public Ex102(){} //public 생성자로 해야 타 패키지 사용가능
+
+	// class 자체가 public default 여부가 최우선순위로 접근제한 걸림. 필드, 생성자, 메서드 보다 최우선
+	// 클래스가 defualt인데 생성자가 public이면 안됨
+	// 클래스가 public일때 생성자가 private이면 됨. 즉 public > default > private 순이면 가능한 것. 
+
+	public void func01(){
+		System.out.println("func01()...." + su1);
+	}
+	public void func02(){
+		System.out.println("func02()...." + su2);
+	}	
+	public void func03(){
+		System.out.println("func03()...." + su3);
+	}	
+}
+

@@ -1,0 +1,18 @@
+package com.bit.day07;
+
+public class Ex11 {
+	public static void main(String[] args) {
+		Tv obj = new Tv();
+		obj.on();
+		obj.work();
+		obj.off();
+		Radio obj = new Radio();
+		obj.on();
+		obj.work();
+		obj.off();
+		Audio obj = new Audio();
+		obj.on();
+		obj.work();
+		obj.off();
+	}
+}

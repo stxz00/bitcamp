@@ -1,0 +1,6 @@
+RESET.BAT 실행 후 system/오라클 해야 됨
+
+sqlplus scott/tiger 아이디 비번
+
+select * from emp;
+select * from dept;

@@ -1,0 +1,29 @@
+package com.bit.ex05;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class WebServer {
+	
+	public static void main(String[] args) {
+		ServerSocket serv = null;
+		OutputStream os = null;
+		try {
+			serv = new ServerSocket(5000); //브라우저에 http://121.129.154.65:5000/ 하면 접속됨 나옴
+			System.out.println("접속대기...");
+			Socket sock = serv.accept();
+			System.out.println("접속됨");
+			os = sock.getOutputStream();
+			os.write("Hello world...".getBytes());
+			os.flush();
+			os.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,129 @@
+package com.bit.exercise;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+import java.util.Scanner;
+
+import oracle.jdbc.driver.OracleDriver;
+
+public class Ex01 {
+	static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		
+		System.out.println("학생성적관리프로그램 ver 0.8.0");
+		
+		String menu = "1.조회 2.입력 3.수정 4.삭제 0.종료\n>>";
+		while(true){
+			System.out.print(menu);
+			int su = sc.nextInt();
+			if(su == 0) {
+				break;
+			}else if(su == 1) {
+				System.out.println("----------------------------------------");
+				System.out.println("학번\t이름\t국어\t영어\t수학");
+				System.out.println("----------------------------------------");
+				db("조회");
+			}else if(su == 2) {
+				db("추가");
+			}else if(su == 3) {
+				db("수정");
+			}else if(su == 4) {
+				db("삭제");
+			}
+		}
+		
+	}
+	static void db(String crud) {
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		Properties prop = new Properties();
+		prop.setProperty("user", "scott");
+		prop.setProperty("password", "tiger");
+		OracleDriver driver = new OracleDriver();
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = new String();
+		try {
+			DriverManager.registerDriver(driver);
+			conn = DriverManager.getConnection(url,prop);
+			stmt = conn.createStatement();
+			if(crud.equals("조회")) {
+				sql = "select * from student01";
+				rs = stmt.executeQuery(sql);
+				while(rs.next()) {
+					System.out.print(rs.getString(1) + "\t");
+					System.out.print(rs.getString(2) + "\t");
+					System.out.print(rs.getString(3) + "\t");
+					System.out.print(rs.getString(4) + "\t");
+					System.out.println(rs.getString(5));
+				}
+				
+			}else if(crud.equals("추가") || crud.equals("수정")) {
+				String insert = "insert into student01 values(";
+				String update = "update student01 set (";
+				System.out.print("학번을 입력하세요\n>>");
+				int stuId = sc.nextInt();
+				sql += stuId;
+				System.out.print("이름을 입력하세요\n>>");
+				sc.nextLine();
+				String name = sc.nextLine();
+				sql += ",'" + name + "'";
+				System.out.print("국어 점수를 입력하세요\n>>");
+				int su = sc.nextInt();
+				sql += ",'" + su;
+				System.out.print("영어 점수를 입력하세요\n>>");
+				su = sc.nextInt();
+				sql += ",'" + su;
+				System.out.print("수학 점수를 입력하세요\n>>");
+				su = sc.nextInt();
+				sql += ",'" + su +")";
+				if(crud.equals("추가")) {
+					insert += sql;
+					System.out.println(insert);
+					stmt.executeUpdate(insert);
+				}else {
+					update += sql;
+					update += " where 학번=" + stuId;
+					stmt.executeUpdate(update);
+				}
+			
+			}else if(crud.equals("삭제")) {
+				System.out.print("삭제할 학번을 입력하세요\n>>");
+				int su = sc.nextInt();
+				String remove = "delete from student01 학번 where 학번=" + su;
+				stmt.executeQuery(remove);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {rs.close();}
+				if(stmt != null) {stmt.close();}
+				if(conn != null) {conn.close();}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

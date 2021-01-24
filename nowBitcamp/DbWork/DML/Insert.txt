@@ -1,0 +1,9 @@
+Insert 후 exit해야 저장됨!
+
+insert into dept (deptno, dname, loc) values (50,'회계','서울');
+------------------------------------------------------------------------
+null을 넣는 두 가지 방법
+insert into dept (deptno, dname, loc) values(52,'cc','null');
+insert into dept (deptno, dname, loc) values(92,'cc',null);
+insert into dept (deptno, dname, loc) values(53,'dd','');
+쿼리는 문자와 문자열의 구분을 하지 않음. 그래서 ''은 없는걸로 치기 때문에 데이터가 없는걸로 인식

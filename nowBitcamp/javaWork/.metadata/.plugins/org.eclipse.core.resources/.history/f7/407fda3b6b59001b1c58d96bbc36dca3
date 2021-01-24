@@ -1,0 +1,32 @@
+package com.bit.ex05;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class WebServer {
+	
+	public static void main(String[] args) {
+		ServerSocket serv = null;
+		OutputStream os = null;
+		try {
+			//브라우저에 http://121.129.154.65:5000/ 하면 자바에 접속됨 프린트아웃 나옴
+			//http이기 때문에 이 접속이 정상이라고 해줘야함
+			serv = new ServerSocket(5000); 
+			System.out.println("접속대기...");
+			Socket sock = serv.accept();
+			System.out.println("접속됨");
+			os = sock.getOutputStream();
+			os.write("HTTP/1.1 200 OK \r\n".getBytes());
+			os.write("\r\n".getBytes());
+			os.flush();
+			os.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,36 @@
+package ncstest01;
+
+import java.util.Scanner;
+import java.util.TreeMap;
+
+class Student{
+	int num;
+	String kor,eng,math;
+}
+
+
+public class Test01 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		TreeMap<Integer, Object> data = new TreeMap<Integer, Object>();
+		
+		System.out.println("학생 성적 프로그램 ver");
+		System.out.println("----------------------------------------------");
+		
+		String main = ("1.보기 2.입력 3.수정 4.삭제 0.종료 \n>");
+		
+		String menu = ("----------------------------------------------");
+		menu += ("\n학번\t이름\t국어\t영어\t수학\n");
+		menu += ("----------------------------------------------");
+		
+		while(true) {
+			System.out.print(main);
+			int num = sc.nextInt();
+			
+			break;
+		}
+		
+		
+	}
+}

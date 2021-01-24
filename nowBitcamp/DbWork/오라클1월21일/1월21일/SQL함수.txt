@@ -1,0 +1,271 @@
+SQL함수
+
+자바로 치면 메서드이다.
+
+함수만 있는 언어, 메서드만 있는 언어, 함수와 메서드가 있는 언어가 존재. 함수와 메서드는 다름
+
+면접 : 함수와 메서드의 차이는? -> 경계가 애매모호하여 확실한 차이가 없다(인터넷에서 찾아보고 직접 써보고 느낀것을 말하기)
+
+문자 함수, 숫자 함수, 날짜 함수
+
+자료형을 변환시키고자 할 때 사용
+
+SELECT 'TEXT' FROM DEPT; 밸류값이 출력됨 써놓은 밸류값에 맞는 자료형 칼럼이 있으면 나옴
+
+SELECT 1+2+3 FROM DEPT;
+
+SELECT * FROM DUAL; 
+SELECT 1+2+3 FROM DUAL;
+SELECT 1+2+3 'AAA' FROM DUAL;
+select ename, sal, sal*1.1 from emp //sal*1.1은 없는 칼럼이지만 위처럼 밸류값 형식으로 나오는 것! 
+듀얼이란 레코드에서 연산이나 특정문자열 요구될때 사용하기 위한 특수한 테이블
+한마디로 연산, 함수 등 테스트용이라 보면됨.
+----------------------------------------------------------------------------------------------------
+단일 행 함수 : 레코드 숫자만큼 반환되서 출력됨 
+select substr(ename,2) from emp;
+
+
+그룹함수 : 집어넣으면 하나의 레코드로 반환되서 출력됨
+SELECT SUM(SAL) FROM EMP;
+select ename,sum(sal) from emp; ->오류, 하나는 그룹. 하나는 단일이라서 병행하여 사용할 수 없다!
+----------------------------------------------------------------------------------------------------
+단일 행 함수 : 행마다 함수가 적용되어 결과를 반환
+
+문자 함수 : 문자열을 다른 형태로 변환하여 나타냄
+숫자 함수 : 숫자 값을 다른 형태로 변환하여 나타냄
+날짜 함수 : 날짜 값을 다른 형태로 변환하여 나타냄
+변환 함수 : 서로 다른 타입으로 변환하여 나타냄 
+일반 함수 : 기타 함수
+----------------------------------------------------------------------------------------------------
+문자 함수 
+LOWER 소문자로 변환
+SELECT 'DataBase', Lower('DataBase') from dual;
+select * from emp where lower(ename) = 'smith';
+
+----------------------------------------------------------------------------------------------------
+UPPER  대문자로 변환
+select * from emp where ename = upper('smith');
+----------------------------------------------------------------------------------------------------
+INITCAP  첫 글자만 대문자로 나머지 글자는 소문자로 변환
+select initcap('DATA BASE PROGRAM') from dual;
+//우리 자료에 문자가 없어서.
+----------------------------------------------------------------------------------------------------
+CONCAT 문자의 값을 연결
+select concat('ab','cd') from dual;
+select concat(dname,loc) from dept;
+select concat(concat(concat(dname,'는 '), loc), '에 있습니다') from dept;
+select 'ab' || 'cd' as "abcd" from dual;
+----------------------------------------------------------------------------------------------------
+LENGTH 길이를 출력(한글 1Byte)
+SELECT '한글', LENGTH('한글') FROM DUAL; 결과 2
+select length('DataBase'), length('데이터베이스') from dual;
+
+LENGTHB 바이트 단위로 길이를 출력(한글 3Byte)
+SELECT '한글', LENGTHB('한글') FROM DUAL; 결과 6
+select lengthb('DataBase'), lengthb('데이터베이스') from dual;
+
+select ename from emp where ename like '____';
+select ename from emp where length(ename)=4;
+
+SUBSTR(대상, 시작위치, 추출할 개수)
+select substr('database',1,3) from dual; //자바와 다르게 시작은 1부터임
+select substr('abcdefg',1) from dual;
+select substr('abcdefg',2) from dual;
+select substr('abcdefg',2,3) from dual;
+select substr('abcdefg',2,length('abcdefg')-(2-1)) from dual;
+select substr('한글로작성',1) from dual;
+select substr('한글로작성',2) from dual;
+select substr('한글로작성',1,2) from dual;
+select substr('한글로작성',4,2) from dual;
+select substr('한글로작성',-2,2) from dual; //한글로를 더하여 1시점부터인 작 부터 출력
+
+select ename,substr(hiredate,1,2) from emp where deptno=20;
+
+87년도에 입사한 사원 알아내기
+select ename, hiredate from emp where substr(hiredate,1,2)='87';
+select ename, hiredate from emp where hiredate>='1987/01/01' and hiredate<='1987/12/31';
+select ename, hiredate from emp where hiredate between'1987/01/01' and '1987/12/31';
+
+
+SUBSTRB대상, 시작위치, 추출할 개수)
+select substrb('database,1,3) from dual;
+select substrb('한글로작성',1) from dual;
+select substrb('한글로작성',2) from dual; //한의 3바이트 중 2바이트가 남고 출력. 물론 공백으로 보임
+select substrb('한글로작성',1,6) from dual;
+select substrb('한글로작성',10,15) from dual;
+select substrb('한글로작성',-6,6) from dual;
+
+----------------------------------------------------------------------------------------------------
+
+INSTR  특정 문자의 위치를 구하는 함수. 대상 문장이나 칼럼에서 특정 문자가 나타나는 위치를 알려준다
+//String의 indexOf와 같음 차이점은 쿼리문은 문자와 문자를 구분하지 않으니 시작점을 알려줌
+instr(단어,찾을것,위치, 찾을 것의 몇번째 위치한거)
+
+select instr('DataBase','B') from dual; 
+select instr('한글로작성','로') from dual;
+select instr('aababcabcadabcde','b') from dual;
+select instr('aababcabcadabcde','bca') from dual;
+
+select instr('aababcabcadabcde','b',3) from dual;
+select instr('aababcabcadabcde','b',4) from dual;
+select instr('aababcabcadabcde','b',4,2) from dual;
+
+INSTRB
+select instrb('한글로작성','로') from dual;
+----------------------------------------------------------------------------------------------------
+LPAD/RPAD함수 : 특정 기호로 채움. 
+//한마디로 빈공간에 자릿수 채워주는 것
+select LPAD('java',10,'#') from dual;  //앞쪽채움
+select RPAD('java',10,'#') from dual; //뒤쪽채움
+----------------------------------------------------------------------------------------------------
+TRIM : 앞 뒤의 공백을 없애줌. 문자 사이의 공백들은 냅둔다. 단, 탭은 인식 안된다!
+select trim('              ab abcd abcdefg                  ') from dual;
+
+select trim('#' from '########java########') from dual; 디폴트는 공백이고 이처럼 trim('문자' from '내용')
+select trim('#' from rpad('java',10,'#')) from dual;
+----------------------------------------------------------------------------------------------------
+숫자함수
+
+ABS  : 절대값 |-1000| = 1000
+
+select abs(1000) from dual;
+select abs(-1000) from dual;
+
+FLOOR : 소수점 날림
+select floor(3.14) from dual;
+
+TRUNC : 소수점 몇까지 잘라냄
+select trunc(3.14) from dual;
+select trunc(3.14,1) from dual;
+select trunc(3.1445654654634,2) from dual;
+select trunc(3.1445654654634,0) from dual;
+select trunc(345345435.1445654654634,-5) from dual; // -로 자연수들을 0으로 숫자값 제어 가능!
+
+ROUND : 반올림
+select round(3.74) from dual;
+select round(3.74,1) from dual;
+select round(3.745,2) from dual;
+select round(357.745,-1) from dual; 
+
+MOD : 나머지 값을 구하는 함수
+select 5/2 from dual; 	2.5나옴
+select trunc(5/2) from dual; //몫
+select mod(5,2) from dual;  //나머지
+----------------------------------------------------------------------------------------------------
+날짜 함수
+
+SYSDATE : 시스템 저장된 현재 날짜를 반환(다른 언어에서는 NOW임)
+select sysdate from dual; 다른 곳에서는 select now() from dual;
+
+MONTS_BETWEEN : 두 날짜 사이가 몇개월인지를 반환(소수점까지 나옴)
+select months_between(sysdate,'20201207') from dual;
+select trunc(months_between(sysdate,'20201207')) from dual;
+----------------------------------------------------------------------------------------------------
+ADD_MONTHS : 해당 날짜에 개월을 더함
+day는 그냥 덧셈뺄셈
+select sysdate+1 from dual; +1 해서 그 다음 날 
+select sysdate-1 from dual; -1헤서  그 전날
+select sysdate-365 from dual -> 오류 : 365.546523432 등으로 해야하는데 우리는 잘모름
+그래서
+select add_months(sysdate,12) from dual;
+select add_months(sysdate,-12) from dual;
+
+----------------------------------------------------------------------------------------------------
+NEXT_DAY : 특정 날짜에서 최초로 도래하는 인자로 반환
+select next_day(sysdate,'금요일') from dual;
+select next_day(sysdate,'월요일') from dual;
+select next_day(sysdate,'월') from dual;
+select next_day(sysdate,'1') from dual; //일
+select next_day(sysdate,'2') from dual; //월
+select next_day(sysdate,'3') from dual; //화
+select next_day(sysdate,'4') from dual; //수
+----------------------------------------------------------------------------------------------------
+LAST_DAY : 해당 달의 마지막 날짜를 반환
+select LAST_DAY(sysdate) from dual;
+----------------------------------------------------------------------------------------------------
+ROUND : 인자로 받은 날짜를 특정 기준으로 반올림한다 (시간)
+select round(sysdate) from dual; 오후 12시 넘었으면 그 다음날 출력
+----------------------------------------------------------------------------------------------------
+TRUNC : 시간값을 초기화(00:00);
+select trunc(sysdate) from dual; 
+
+TRUNC 함수의 다양한 적용
+syyy,yyyy,year,syear,yyy,yy,y : 7월 1일부터 반올림 
+month.mon,mm,rm : 16,15 등 그 달의 날짜 기준으로 반올림 
+ddd,dd,j : 일을 기준으로 하면 한 주가 시작되는 날짜 
+day,dy,d : 한주가 시작되는 날짜
+hh,hh12,hh24 : 시을 기준 
+mi : 분을 기준
+
+select round(sysdate,'d') from dual; //day
+select round(sysdate,'day') from dual; //day
+select round(sysdate,'ddd') from dual; //일
+select round(sysdate,'dd') from dual; //일
+----------------------------------------------------------------------------------------------------
+변환함수 
+TO_CHAR 날짜형 혹은 숫자형을 문자형으로 변환
+select sysdate, to_char (sysdate,'yy.mm.dd.day.hh:mi:ss') from dual;
+select sysdate, to_char (sysdate,'yyyy.mm.dd.day.hh:mi:ss') from dual;
+select sysdate, to_char (sysdate,'yyyy.mm.dd day am hh:mi:ss') from dual; //am pm 둘 중 하나라도 넣어주면 알아서 해줌
+select sysdate, to_char (sysdate,'yyyy.mm.dd day am hh24:mi:ss') from dual;
+----------------------------------------------------------------------------------------------------
+
+TO_NUMBER 문자형을 숫자형으로 변환
+0 9 L . ,
+select 1000 from dual;
+select 1000, to_char (1000,'999,999') from dual;
+select 1000, to_char (1000,'000,000.00') from dual;
+select 100000, to_char (10000000,'999,999') from dual;
+//표현 범위를넣었을 경우 안됨
+select 100000, to_char (1000000,'999,999,999,999,999')||'원' from dual;
+//적으면 괜찮음
+select 100000, to_char (1000000,'$999,999,999,999,999') from dual;
+select 100000, to_char (1000000,'999,999,999,999,999') from dual;
+이를 다시 숫자로 바꿀려면
+select '1,000', to_number('1,000','9,999') from dual;
+
+----------------------------------------------------------------------------------------------------
+TO_DATE 문자형을 날짜형으로 변환
+select '01.21.21',to_date('01.21.21','mm.dd,yy') from dual;
+select to_char(to_date('01.21.21','mm.dd,yy'),'yymmdd hh24:mi:ss') from dual; //내가 주지 않은 값은 디폴트
+----------------------------------------------------------------------------------------------------
+기타 함수
+
+일반 함수 
+
+NVL : NVL(comm,0) comm에서 null을 0으로 변환
+
+select ename, sal, comm from emp;
+select ename, sal, comm, sal+comm from emp; //comm null값때문에 안됨
+select ename, sal, comm, sal+NVL(comm,0) from emp;
+----------------------------------------------------------------------------------------------------
+DECODE : 해당되는 값을 원하는 문자로 변환
+
+select ename, decode(deptno,10,'서울',20,'부산',30,'대전',40,'대구') from emp;
+
+select ename, decode(deptno,10,'서울',20,'부산') from emp; //★ 적게 쓰는 경우 다 null로 나옴
+----------------------------------------------------------------------------------------------------
+CASE : swich문
+
+CASE 표현식 
+WHEN 조건1 THEN 결과1 
+WHEN 조건2 THEN 결과2 
+WHEN 조건3 THEN 결과3 
+else '' 
+end
+
+select ename, case
+when deptno=10 then '서울'
+when deptno=20 then '부산'
+else '몰라' 
+end from emp;
+
+select ename, case
+when deptno>10 then '서울'			//switch문처럼 맨위에 해당되면 서울로 끝(if-else에 더 가까움)
+when deptno>20 then '부산'			
+else '몰라' 
+end from emp;
+
+---------------------------------------------------------------------------------------------------
+Count : true의 수를 보여줌 
+select count(decode(deptno, 10, 66464)) from emp;

@@ -1,0 +1,22 @@
+Insert 후 exit해야 저장됨!
+
+insert into dept (deptno, dname, loc) values (50,'회계','서울');
+------------------------------------------------------------------------
+null을 넣는 두 가지 방법
+insert into dept (deptno, dname, loc) values(52,'cc','null'); 이러면 안되고
+insert into dept (deptno, dname, loc) values(92,'cc',null); 이래야 null
+insert into dept (deptno, dname, loc) values(53,'dd','');
+쿼리는 문자와 문자열의 구분을 하지 않음. 그래서 ''은 없는걸로 치기 때문에 데이터가 없는걸로 인식
+------------------------------------------------------------------------
+insert into dept (deptno, dname, loc) values('54','ee','ee');
+insert into dept (deptno, dname, loc) values('5a','ee','ee'); 이러면 오류 : 수치가 부적합
+------------------------------------------------------------------------
+insert into dept values('55','ii','jj'); 
+알아서 스키마 순서대로 잘 들어감
+
+단, 제약은 insert into dept values('56','kk');
+이러면 안됨 컬럼대로 다 넣어줘야함 
+------------------------------------------------------------------------
+insert into dept (loc,deptno, dname) values('xx',57,'yy'); 
+칼럼 순이 아니더라도 잘만 쓰면 됨(집합의 개념)
+------------------------------------------------------------------------

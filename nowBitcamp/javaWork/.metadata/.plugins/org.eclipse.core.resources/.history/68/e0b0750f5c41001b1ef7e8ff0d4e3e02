@@ -1,0 +1,31 @@
+package com.bit.day10;
+
+class Ball{
+	final int number;
+	
+	public Ball(int a){
+		number = a;
+		
+	}
+	
+}
+
+
+public class Ex18Of1 {
+	public static void main(String[] args) {
+		
+		Ball[] ball = new Ball[45];
+		
+		for(int i = 0; i < ball.length; i++) {
+			Ball box = new Ball(i+1);
+		}
+		
+		while(true) {
+			
+		}
+		
+		
+		
+	
+	}
+}

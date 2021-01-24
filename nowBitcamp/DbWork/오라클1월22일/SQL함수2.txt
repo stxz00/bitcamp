@@ -1,0 +1,57 @@
+그룹함수 : 각 레코드에 있는 것들에 대하여 반환하는 것!
+xxxxx select sum(10,20,30) from dept; xxxxxxxxxxxxx 이런거 아님
+
+
+SUM
+
+select sum(deptno) from dept;
+select sum(deptno),dname from dept; -> 오류 : 이렇게 다수는 안됨 그룹함수가 단 하나 줄로만 출력되니
+-----------------------------------------------------------------------------------------
+COUNT
+
+select count(loc) from dept;
+select count(*) from dept;
+select count(deptno, dname) from dept; -> 오류 : 인자의 개수는 단 하나,(위 와일드가 들어갔다고 되는게 아님)
+
+-----------------------------------------------------------------------------------------
+MAX/MIN
+
+select min(deptno),avg(deptno),max(deptno),sum(deptno) from dept; -> 이렇게 단일행으로 출력되면 됨!
+-----------------------------------------------------------------------------------------
+AVG
+부서번호 10번 평균연봉은?
+select avg(sal) from emp where deptno=10;
+-----------------------------------------------------------------------------------------
+GROUP BY : 그룹들을 각자 출력
+각 부서별 평균연봉은?
+select deptno, avg(sal) from emp group by deptno; //group by로 같은 부서로 묶었기 때문에 deptno가 가능해짐!(empno는 당연히 안됨)
+select deptno, avg(sal) from emp where ename like '%A%' group by deptno;
+select deptno, avg(sal) from emp where ename like '%A%' group by deptno order by deptno asc;
+//order by는 총 결과가 나오고 그때서야 order by가 기능함
+distinct를 더 많이 씀
+
+부서별로 사원의 수와 커미션을 받는 사원의 수를 카운트 해 보자.
+select count(*) from emp;
+select ename,comm,deptno from emp where comm!=0 and comm is not null;
+select deptno, count(*), min(comm), avg(comm), max(comm) from emp where comm!=0 and comm is not null group by deptno;
+
+-----------------------------------------------------------------------------------------
+HAVING 조건 : 나온 결과로 조건을 걸어야하는 경우 사용! //~들에 대해
+전체 부서의 평균연봉이 2000이 넘는 사원들에 대해 각 부서번호와 평균연봉을 출력하시오
+select deptno, avg(sal) from emp group by deptno having avg(sal)>2000 order by deptno;
+//부서번호로 그룹을 짓고 평균연봉 2000 초과자들에 대해 부서번호와 평균연봉을 출력함.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

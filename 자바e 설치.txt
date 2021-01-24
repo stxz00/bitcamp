@@ -1,0 +1,8 @@
+install에서 자기버전 -> web,xml 거기를 확장해서 
+eclipse java EE developer tools
+eclipse java web developer tools
+eclipse java web developer tools - javaScript Support 
+javaScript Dvelopment Tools
+JST server Adapters Extensions
+
+설치후 Open Perstpective에서 java EE 추가 하면 아래 콘솔창쪽에 Servers 

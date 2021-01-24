@@ -1,0 +1,105 @@
+package ncstest01;
+
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
+
+class Student{
+	int kor,eng,math;
+	String name;
+	
+	@Override
+	public String toString() {
+		return name + "\t" +kor+ "\t" + eng+ "\t" +math+ "\n";
+	}
+}
+
+public class Test01 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		TreeMap<Integer, Student> data = new TreeMap<Integer, Student>();
+		
+		System.out.println("학생 성적 프로그램 이해남 만듬 ver");
+		System.out.println("====================================================");
+		
+		String main = ("1.보기 2.입력 3.수정 4.삭제 0.종료 \n>");
+		
+		String menu = ("====================================================");
+		menu += ("\n학번\t이름\t국어\t영어\t수학\n");
+		menu += ("====================================================");
+		
+		while(true) {
+			System.out.print(main);
+			int num = sc.nextInt();
+			
+			if(num == 0) {
+				break;
+			}else if(num==1) {
+				//보기
+				System.out.println(menu);
+				Set keys = data.keySet();
+				Iterator<Integer> ite = keys.iterator();
+				while(ite.hasNext()) {
+					int su = ite.next();
+					Student stu = data.get(su);
+					System.out.print(su + "\t" + stu.toString());
+					System.out.println("----------------------------------------");
+				}
+			}else if(num==2) {
+				//추가
+				System.out.print("추가할 학번을 입력하세요\n>>");
+				int su = sc.nextInt();
+				if(data.get(su)==null) {
+					Student stu = new Student();
+					System.out.print("이름을 입력하세요\n>>");
+					sc.nextLine();
+					stu.name = sc.nextLine();
+					System.out.print("국어 점수를 입력하세요\n>>");
+					stu.kor = sc.nextInt();
+					System.out.print("영어 점수를 입력하세요\n>>");
+					stu.eng = sc.nextInt();
+					System.out.print("수학 점수를 입력하세요\n>>");
+					stu.math = sc.nextInt();
+					data.put(su,stu);			
+				}else {
+					System.out.println("이미 존재하는 학번입니다");
+				}
+			}else if(num==3) {
+				//수정
+				System.out.print("수정할 학번 입력하세요\n>>");
+				int su = sc.nextInt();
+				if(data.get(su)==null) {
+					System.out.println("존재하지 않는 학번입니다.");
+				}else {
+					Student stu = new Student();
+					System.out.print("이름을 입력하세요\n>>");
+					sc.nextLine();
+					stu.name = sc.nextLine();
+					System.out.print("국어 점수를 입력하세요\n>>");
+					stu.kor = sc.nextInt();
+					System.out.print("영어 점수를 입력하세요\n>>");
+					stu.eng = sc.nextInt();
+					System.out.print("수학 점수를 입력하세요\n>>");
+					stu.math = sc.nextInt();
+					data.put(su,stu);
+				}
+				
+			}else if(num==4) {
+				//삭제
+				System.out.print("삭제할 학번을 입력하세요\n>>");
+				int su = sc.nextInt();
+				if(data.get(su)==null) {
+					System.out.println("존재하지 않는 학번입니다.");
+				}else {
+					data.remove(su);
+				}
+				
+			}
+			
+		}
+		
+		
+	}
+}

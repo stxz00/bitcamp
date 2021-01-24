@@ -1,0 +1,93 @@
+★SQL란
+관계 DB를 처리하기 위해 고안된 언어
+독자적인 문법을 갖는 DB 표준 언어(표준언어를 만든 게 오라클)
+데이터를 조회, 입력, 수정, 삭제 CRUD
+
+★SQL*PLUS란
+SQL 명령문을 기능을 제공
+칼럼이나 데이터의 출력형식을 설정
+환경 설저하는 기능 제공
+
+기본적인 오라클 제어를 100% 하기 위해서는 SQL*PLUS고
+이를 편하게 만든 게 UI(자바 등)다.
+
+웹사이트, 자바를 통해 오라클을 제어하는 게 우리의 목적(제어를 위해 쿼리를 이용)
+
+계정		암호		설명
+SYS 	DB생성 시 설정한 암호 	oracle
+SYSTEM  DB생성 시 설정한 암호 	oracle
+SCOTT    DB생성 시 설정한 암호 	교육용 계정
+HR 	DB생성 시 설정한 암호 	교육용 계정
+
+기본적으로 현업에서는 오라클 설치 시 교육용 계정을 없앰
+
+교육용계정 hr 여는 방법 두 가지
+1) 
+원래 sqlplus hr/hr 하면 the account is locked;
+
+system/oracle(한글로) -> 처음에 우리가 설치시 암호쓴 거!
+alter user hr identified by hr account unlock;
+사용자가 변경되었습니다.
+
+이러고 나가서 다시 hr/hr 로 접속하면 연결됨!
+
+2) 
+브라우저에 http://localhost:8080/apex
+로그인 system/oracle(한글로)
+
+홈 관리->데이터베이스 사용자 관리 -> 계정 눌러서 계정 상태 바꾸면 됨
+현업에서는 오라클 페이지 안봄(오라클 접근 제한, 접근이 쉬우면 데이터에 문제를 일으킬 수 있으니)
+관리 - HTTP 액세스 관리 - 여기서 아예 막아버림
+
+
+SQL*PLUS 로그인 실패할 경우 해결 방법
+1. 데이터베이스가 가동되지 않은 경우
+1)윈도우 시작버튼 누르고 - 데이타베이스 시작 우클릭 관리자 권한으로 실행
+2)윈도우 검색창에서 서비스 검색하여 들어가고 - OracleXETNSListener, OracleXEClrAgent 클릭 후 
+왼쪽에 뜨는 서비스 시작
+
+SQL
+1. SQL의 종류
+
+1)DML(Data Mnipulation Language) 데이터 조작어, 정의된 데이터베이스에 입력된 레코드를 조회하거나
+ 수정하거나 삭제하는 등의 역할을 하는 언어를 말합니다.
+ex) row 기준으로 생성, 수정, 삭제
+
+즉, 데이터를 제어하는 명령
+
+Select 조회
+Insert 추가
+Update 
+Delete
+
+DQL)데이터 질의어, 보통 데이터 검색(SELECT)라고 생각하시면 됩니다.
+보통 DQL+DML = DML에 포함시키기도 합니다
+
+
+2)TCL(Transaction Control Language) 
+Transaction 관리,DML을 통해 작업한 내용을 DB에 반영할때 사용하는 Trasaction 언어로 보시면 됩니다.
+COMMIT이나 ROLLBACK이 이에 해당합니다.
+
+Transaction : 세트로 수행해야하는 경우 하나라도 실패하면 취소, 모두 수행 되면 되는 것
+
+COMMIT : 영구 저장
+ROLLBACK 등
+
+3)DDL(Data Definition Language) 데이터 정의어 란? 데이터베이스를 정의하는 언어이며, 
+데이터리를 생성, 수정, 삭제하는 등의 데이터의 전체의 골격을 결정하는 역할을 하는 언어 입니다.
+
+CREATE : 객체 생성
+부서번호, 부서명, 지역명으로 구성된 DEPT01 테이블을 생성
+
+RENAME 등
+
+4)DCL(Data Control Language) 
+데이터베이스에 접근하거나 객체에 권한을 주는등의 역할을 하는 언어입니다.
+데이터 권한을 생성/해재하는 GRANT이나 REVOKE 등이 이에 해당됩니다.
+* 데이터의 보안, 무결성, 회복, 병행 수행제어 등을 정의하는데 사용합니다.
+
+즉, 오라클 자체를 컨드롤 하는 것.
+GRANT : 사용자에게 특정 권한을 준다.
+
+
+

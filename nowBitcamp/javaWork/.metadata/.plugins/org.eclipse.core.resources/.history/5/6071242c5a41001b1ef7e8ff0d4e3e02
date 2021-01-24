@@ -1,0 +1,15 @@
+package com.bit.day10;
+
+class Ball{
+	final static int number;
+	
+	public Ball(int a){
+		number = a;
+	}
+	
+}
+
+
+public class Ex18Of1 {
+	
+}

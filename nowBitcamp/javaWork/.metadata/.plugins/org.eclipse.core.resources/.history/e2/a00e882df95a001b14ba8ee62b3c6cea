@@ -1,0 +1,233 @@
+package ncstest01;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class StuGrade {
+   
+   public static void main(String [] args) {
+      Scanner sc = new Scanner(System.in);
+      Score score = new Score();
+      Student stu = new Student();
+      int i=0;
+      
+      while(true) {
+         System.out.println("1.전체    2.상세    3.입력    4.수정    5.삭제    0.종료    ");
+         
+         int num = sc.nextInt();
+         
+         switch (num) {
+         case 1:
+            score.Output();
+            break;
+         case 2:
+            score.Search();
+            break;
+         case 3:
+            score.Input(stu);
+            i++;
+            break;
+         case 4:
+            score.Modify();
+            break;
+         case 5:
+            score.Delete();
+            break;
+         case 6:
+            System.out.println("종료합니다.");
+            break;
+            default:
+               System.out.println("잘못입력하셨습니다.");
+            
+         }
+      }
+   }
+   public static class Student {
+      String name;
+      String stuNo;
+      int kor, eng, math, sum;
+      double avg;
+      
+      public String getName() {
+         return name;
+      }
+      public void setName(String name) {
+         this.name = name;
+      }
+      public String getStuNo() {
+         return stuNo;
+      }
+      public void setStuNo(String stuNo) {
+         this.stuNo = stuNo;
+      }
+      public int getKor() {
+         return kor;
+      }
+      public int getEng() {
+         return eng;
+      }
+      public int getMath() {
+         return math;
+      }
+      public int getSum() {
+         return sum;
+      }
+      public double getAvg() {
+         return avg;
+      }
+      public void setKor(int kor) {
+         this.kor = kor;
+      }
+      public void setEng(int eng) {
+         this.eng = eng;
+      }
+      public void setMath(int math) {
+         this.math = math;
+      }
+      public void setSum(int kor,int eng, int math) {
+         sum = kor+eng+math;
+         avg = sum/3.f;
+      }
+      public double getAvg(double avg) {
+         return avg;
+      }
+      public void result() {
+         avg=sum/3.f;
+      }
+      public void Modify(int kor, int eng, int math) {
+         this.kor = kor;
+         this.eng = eng;
+         this.math = math;
+         
+         result();
+      }
+      
+      
+   }
+   public static class Score {
+      Scanner sc;
+      HashMap<Integer, Student> stuIf;
+      int number=0;
+      int num2;
+      
+      Score() {
+         sc = new Scanner(System.in);
+         stuIf = new HashMap<Integer, Student>();
+      }
+      public void Output() {
+         Set<Integer> keySet = stuIf.keySet();
+         Iterator<Integer> iterator = keySet.iterator();
+
+         while (iterator.hasNext()) {
+             int key = iterator.next();
+
+             System.out.print(" 학번 :" + stuIf.get(key).getStuNo());
+             System.out.print(" 이름 :" + stuIf.get(key).getName());
+             System.out.print(" 국어 :" + stuIf.get(key).getKor());
+                System.out.print(" 영어 :" + stuIf.get(key).getEng());
+             System.out.print(" 수학 :" + stuIf.get(key).getMath());
+             System.out.print(" 총점 :" + stuIf.get(key).getSum());
+             System.out.print(" 평균 :" + stuIf.get(key).getAvg());
+             System.out.println(" ");
+         }
+      }
+      public void Search() {
+         Set<Integer> keySet = stuIf.keySet();
+         Iterator<Integer> iterator = keySet.iterator();
+
+         System.out.println("검색 할 학번 혹은 이름을 입력하세요.");
+         String sN;
+         sN= sc.next();
+         while (iterator.hasNext()) {
+            int key = iterator.next();
+
+         for(int i=0; i<number; i++) {
+            System.out.println(stuIf.get(key).getStuNo());
+            if(sN.equals(stuIf.get(i).getStuNo()) || sN.equals(stuIf.get(i).getName())) {
+                System.out.print(" 학번 :" + stuIf.get(key).getStuNo());
+               System.out.print(" 이름 :" + stuIf.get(key).getName());
+                System.out.print(" 국어 :" + stuIf.get(key).getKor());
+                   System.out.print(" 영어 :" + stuIf.get(key).getEng());
+                System.out.print(" 수학 :" + stuIf.get(key).getMath());
+                System.out.print(" 총점 :" + stuIf.get(key).getSum());
+                System.out.print(" 평균 :" + stuIf.get(key).getAvg());
+                System.out.println(" ");
+                    break;
+            }
+            }
+         }
+      }
+      public void Input(Student st) {
+         sc = new Scanner(System.in);
+         Student st1 = new Student();
+         
+         System.out.println("학번을 입력해주세요");
+         String stuNo = sc.next();
+         st1.setStuNo(stuNo);
+         
+         System.out.println("이름을 입력해주세요");
+         String name = sc.next();
+         st1.setName(name);
+         
+         System.out.println(stuNo+"번"+name + "의 국어 성적을 입력해주세요");
+         int kor = sc.nextInt();
+         st1.setKor(kor);
+
+         System.out.println(stuNo+"번"+name + "의 영어 성적을 입력해주세요");
+         int eng = sc.nextInt();
+         st1.setEng(eng);
+
+         System.out.println(stuNo+"번"+name + "의 수학 성적을 입력해주세요");
+         int mat = sc.nextInt();
+         st1.setMath(mat);
+
+         st1.setSum(kor, eng, mat);
+         st1.result();
+
+         stuIf.put(number,st1);
+         
+         number = number+1;
+      }
+      public void Modify() {
+
+          System.out.println("누구를 수정하시겠습니까?");
+          String name = sc.next();
+
+          Set<Integer> keySet = stuIf.keySet();
+          Iterator<Integer> iterator = keySet.iterator();
+
+          while (iterator.hasNext()) {
+         int key = iterator.next();
+
+         if (name.equals(stuIf.get(key).getName())) {
+             System.out.println(stuIf.get(key).getName() + "님의 바뀐 국어성적을 입력해주세요");
+             int kor = sc.nextInt();
+             stuIf.get(key).setKor(kor);
+
+             System.out.println(stuIf.get(key).getName() + "님의 바뀐 영어성적을 입력해주세요");
+             int eng = sc.nextInt();
+             stuIf.get(key).setEng(eng);
+
+             System.out.println(stuIf.get(key).getName() + "님의 바뀐 수학성적을 입력해주세요");
+             int math = sc.nextInt();
+             stuIf.get(key).setMath(math);
+             stuIf.get(key).setSum(kor, eng, math);
+             stuIf.get(key).result();
+         }
+         }
+       }
+      public void Delete() {
+         System.out.println("누구를 삭제하시겠습니까?");
+         String name = sc.next();
+
+         for (int i = 0; i < stuIf.size(); i++) {
+             if (name.equals(stuIf.get(i).getName())) {
+            stuIf.remove(i);
+            }
+                 }
+          }
+   }
+}

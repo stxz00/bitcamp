@@ -1,0 +1,44 @@
+package com.bit.exercise5;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class WebServer extends Thread{
+	Socket sock;
+	
+	@Override
+	public void run() {
+		try(OutputStream os = sock.getOutputStream();){
+			os.write("HTTP/1.1 200 OK\r\n".getBytes());
+			os.write("\r\n".getBytes());
+			os.write("Hello world".getBytes());
+			os.flush();
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		try(ServerSocket serv = new ServerSocket(5000);){
+			System.out.println("立加措扁");
+			while(true) {
+				Socket sock = serv.accept();
+				System.out.println("立加肯丰");
+				WebServer client = new WebServer();
+				client.sock = sock; 
+				client.start();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+}
