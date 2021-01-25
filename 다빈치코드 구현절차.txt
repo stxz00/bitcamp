@@ -1,0 +1,34 @@
+다빈치코드
+
+1. 서로 4개의 코드를 고름(내 코드 보이게 추가(Textfield.setEnabled(false))
+
+2. 4개 모두 골랐을 때 TreeMap 형식이 되도록 전달 //objectstream 서버먼저 구현(GameServer)
+
+3. 전달 받았으면 라벨에 흑, 백만 보인채로 화면에 띄움(라벨의 setText는 받은 TreeMap의 value값)
+
+4. 화면을 띄우기 위해 new GridLayout(1, 상대방 코드 수) -> 후 add, revalidate
+
+5. 선을 정함
+①랜덤을 이용할 경우 서로 값을 랜덤 받고 상대방에게 전달
+②상대방보다 내가 크면 Textfield.setEnabled(true)
+③상대방보다 내가 작으면 Textfield.setEnabled(false)
+
+5. 선을 잡은 자가 코드를 픽함(기존 4개 뽑을 때의 dialog 사용)
+
+6. 선을 잡은 자가 상대방의 코드를 TextField에 입력(추리)
+
+7. TextField.getText 를 상대방에게 전달
+
+8. 
+①
+ⓐ받은 내용이 맞으면 일단 맞은 코드에 이벤트표시(상대방에 맞춘 코드라고)
+ⓑ맞췄다고 전달
+ⓒ전달받은 자는 맞춘 코드의 아이콘이 보이도록 함
+ⓓdialog 창을 띄워서 계속 추리할지 물음
+ⓔ이어나가겠다면 위 반복, 아니오를 누르면 내가 뽑은 코드를 
+상대방에게 내가 뽑은 코드 상대방에게 안보인채로 전달 후 Textfiled setEnabled(flase), 상대방 true
+★★★★보이고 안보이고의 차이 코드를 송출할때 
+②
+ⓐ틀렸으면 뽑은 코드를 전달 후 보이게 함. TextField setEnabled(false), 상대방 true
+
+9. 8번 내용 반복후 자기의 모든 패를 상대방이 맞추면 dialog 창에 패배, 반대면 승리 표시, 더이상 남은 코드가 없으면 무승부
