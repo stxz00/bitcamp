@@ -1,0 +1,7 @@
+https://blog.naver.com/student1982/30076076925
+
+메모장 형식으로 open with  해서
+
+65번째 줄을 
+  <Connector URIEncoding="EUC-KR" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+로 변경. 엔코딩이 추가된것임
