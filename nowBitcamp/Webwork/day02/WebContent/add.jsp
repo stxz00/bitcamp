@@ -27,7 +27,7 @@
 		<table border="0">
 			<tr>
 				<td width="100" bgcolor="gray" align="center">제목</td>
-				<td><input type="text" name="sub" size="47"></td>
+				<td><input type="text" name="sub" size="47" ></td>
 			</tr>
 			<tr>	
 				<td bgcolor="gray" align="center">글쓴이</td>

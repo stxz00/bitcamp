@@ -1,7 +1,11 @@
 INDEX VERSION 1.131
-C:\Users\stxz\Desktop\bitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
-\day01\src
 C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3125105771.index
 \day02\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\635091326.index
+\dayzero\src
 C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
 \day01\src
+C:\Users\stxz\Desktop\bitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
+\day01\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2528586506.index
+\dayzero\src
