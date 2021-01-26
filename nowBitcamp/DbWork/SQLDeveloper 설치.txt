@@ -1,1 +1,3 @@
 https://www.oracle.com/downloads/opensource/sqldev-v322-downloads.html
+
+jdk 경로 찾아서 넣기 -> 프로그램파일스->자바->빈->jdk

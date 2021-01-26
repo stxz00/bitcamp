@@ -59,6 +59,57 @@ select A.ename,B.ename from emp A, emp B where A.mgr=B.empno(+);
 
 select A.ename,A.sal,B.ename from emp A, emp B where A.mgr=B.empno(+) and A.sal>=3000;
 
+--------------------------------------------------------------------------------------------
+Ansi Join
+
+Cross join
+명시적임
+select * from emp cross join dept;
+select * from ex21 cross join ex22;
+--------------------------------------------------------------------------------------------
+inner는 교집합 outer는 합집합 
+
+Inner join
+
+select * from ex21 inner join ex22 on ex21.idx1=ex22.idx2;
+
+select * from ex21 inner join ex22 on ex21.idx1=ex22.idx2 where idx1=1;
+
+using 
+
+select ename,dname from emp inner join dept on emp.deptno=dept.deptno;
+select ename,dname from emp inner join dept using (deptno); //칼럼명이 같다면 그냥 찾아서 해달라고 함
+
+natural join
+select ename,dname from emp natural join dept; //반드시 칼럼명이 같아야하며 오직 하나만 있어야함
+
+--------------------------------------------------------------------------------------------
+outer join
+
+left outer join
+select A.ename, B.ename from emp A left outer join emp B on A.mgr=B.empno;
+
+right outer join
+select A.ename, B.ename from emp A right outer join emp B on A.mgr=B.empno;
+
+select dname,ename from dept right outer join emp using(deptno);
+
+full join : 다른 경우도 다 조회해줌(다르면 빈공간 줘서)
+select * from ex21 cross join ex22; //의미없이 다 붙여서 조회함
+select * from ex21 full outer join ex22 on ex21.idx1=ex22.idx2; //서로 일치하지 않는 것들도 다 조회(빈공간)
+select * from ex21 right outer join ex22 on ex21.idx1=ex22.idx2;
+select * from ex21 left outer join ex22 on ex21.idx1=ex22.idx2;
+--------------------------------------------------------------------------------------------
+응용
+select * from ex21 right outer join ex22 on ex21.idx1=ex22.idx2 where idx1 is null;
+select * from ex21 left outer join ex22 on ex21.idx1=ex22.idx2 where idx2 is null;
+
+select * from ex21 full outer join ex22 on ex21.idx1=ex22.idx2 where idx1 is null or idx2 is null;
+
+
+
+
+
 
 
 

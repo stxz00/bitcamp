@@ -1,0 +1,7 @@
+C:\oraclexe\oradata\XE
+
+system 계정 접속
+ create tablespace class2 datafile 'C:\oraclexe\oradata\XE\class2.dbf' size 10m;
+
+create user user1 identified by abcd default tablespace class2;
+
