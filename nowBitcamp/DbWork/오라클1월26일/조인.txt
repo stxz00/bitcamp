@@ -1,0 +1,66 @@
+ANSI 표준 조인이냐 그 밖의 비표준 조인이냐로 먼저 구분
+
+비표준에서의 조인들 설명
+
+Cross Join : 다 붙이는 것
+
+select * from emp,dept;
+
+select * from emp,dept where emp.deptno=dept.deptno;
+
+select empno, ename, dname from emp,dept where emp.deptno=dept.deptno;
+
+select empno, ename,emp.deptno, dname from emp,dept where emp.deptno=dept.deptno; //중복된 칼럼명은 직접 emp.deptno 이렇게 해야함
+
+select empno,ename,a.deptno,dname, loc from emp a,dept b where a.deptno=b.deptno;
+
+위에 생략된 게 바로 아래처럼임
+select a.empno,a.ename,a.deptno,b.dname,b.loc from emp a,dept b where a.deptno=b.deptno;
+
+--------------------------------------------------------------------------------------------
+Outer Join
+
+create table ex21(
+	num1 number,
+	name1 varchar2(2),
+	idx1 number
+);
+
+create table ex22(
+	num2 number,
+	name2 varchar2(2),
+	idx2 number
+);
+
+insert into ex21 values(10,'aa',1);
+insert into ex21 values(10,'aa',2);
+insert into ex21 values(12,'cc',3);
+
+insert into ex22 values(20,'AA',1);
+insert into ex22 values(21,'BB',2);
+insert into ex22 values(22,'CC',4);
+
+select * from ex21,ex22;
+select * from ex21,ex22 where idx1=idx2;
+
+select * from ex21,ex22 where idx1=idx2(+);
+
+select * from ex21,ex22 where idx1(+)=idx2;
+즉 (+)가 붙는 쪽은 일치하는 것만 나오고 반대쪽은 다 나오는 것!
+
+--------------------------------------------------------------------------------------------
+Self join : 한 테이블 내에서 조인
+emp의 mgr은 직속상관임
+
+select A.ename,B.ename from emp A, emp B where A.mgr=B.empno;
+
+사장까지 넣고싶으면
+select A.ename,B.ename from emp A, emp B where A.mgr=B.empno(+);
+
+select A.ename,A.sal,B.ename from emp A, emp B where A.mgr=B.empno(+) and A.sal>=3000;
+
+
+
+
+
+

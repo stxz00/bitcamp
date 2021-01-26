@@ -1,0 +1,30 @@
+두 개의 쿼리 문장이 완벽하게 수행될 때 그 때 완성됨. 하나라도 안되면 취소.
+
+create table ex11(
+	num number primary key,
+	name varchar2(2)
+);
+
+create sequence ex11_seq;
+insert into ex11 values (ex11_seq.nextval, 'aa');
+insert into ex11 values (ex11_seq.nextval, 'bb');
+commit;
+insert into ex11 values (ex11_seq.nextval, 'cc');
+select * from ex11;
+rollback;
+select * from ex11;
+
+rollback : 마지막 커밋 시점으로 돌아감. 커밋은 DB에 저장하는 것.
+
+★이클립스는 디폴트가 오토커밋임
+
+insert into ex11 values (ex11_seq.nextval, 'cc');
+savepoint sv1;
+insert into ex11 values (ex11_seq.nextval, 'dd);
+savepoint sv2;
+insert into ex11 values (ex11_seq.nextval, 'ee');
+rollback to sv2;
+select * from ex11;
+rollback to sv1;
+select * from ex11;
+
