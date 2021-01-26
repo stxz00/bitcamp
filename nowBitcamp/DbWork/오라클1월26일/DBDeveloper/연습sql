@@ -1,0 +1,113 @@
+create table ex25(
+  num1 number constraint ex25_num1_nn not null,
+  num2 number constraint ex25_num2_pk primary key,
+  num3 number constraint ex25_num3_fk references ex05(num),
+  num4 number constraint ex25_num4_ck check (num4 in('1','2')), 
+  num5 number constraint ex25_num5_uk unique
+);
+drop table ex25;
+
+alter table ex25 drop constraint ex25_num1_nn;
+alter table ex25 add check(num1 in(1,2));
+alter table ex25 add constraint ex25_num1_uk unique(num1);
+alter table ex25 modify (num1 number constraint ex25_num1_ck check(num1 in(1,2)));
+alter table ex25 add not null(num1);
+
+create sequence ex25_num1_seq start with 11 increment by 2 minvalue 10 maxvalue 20 cycle nocache;
+drop sequence ex25_num1_seq;
+
+select ex25_num1_seq.nextval from dual;
+select * from ex25;
+insert into ex25 (num5) values(1); --오류
+
+select empno "사원번호",ename "이름",sal "급여" 
+from emp where sal in(select sal from emp where ename in('MARTIN', 'SCOTT'));
+
+select A.empno "사원번호",A.ename "이름", A.deptno "부서명", A.hiredate "입사일",
+B.loc "지역", A.sal "급여" from emp A,dept B
+where 
+A.deptno=B.deptno
+and 
+A.SAL > (SELECT AVG(SAL) FROM EMP);
+
+select
+A.deptno "사원번호", A.ename "이름", B.dname "부서명",
+A.hiredate, B.loc 
+from emp A inner join dept B
+on A.deptno=B.deptno 
+where
+A.deptno=10
+and
+A.job in(select job from emp where deptno=20);
+
+select
+A.empno "사원번호", A.ename "이름",
+A.deptno "부서명", a.hiredate "입사일",
+B.loc "지역" 
+from emp A inner join dept B 
+on A.deptno=B.deptno
+where A.deptno=10
+and
+not A.job in(select job from emp where deptno=30);
+
+select
+A.empno "사원번호",
+A.ename "이름",
+B.dname "부서명",
+B.loc "지역",
+A.sal "급여"
+from emp A inner join dept B
+on A.deptno=B.deptno
+where
+A.deptno=10
+and
+A.job in(select job from emp where deptno=10)
+order by A.sal desc;
+
+select
+empno "사원번호",
+ename "이름",
+sal "급여"
+from emp
+where sal>(select min(sal) from emp where deptno=30);
+
+select
+deptno 부서번호,
+count(*) 인원수,
+sum(sal) 급여합계
+from emp
+group by deptno
+having count(*)>4;
+
+select
+deptno 부서번호,
+count(*) 사원수
+from emp
+group by deptno
+having count(*)=(select max(count(*)) from emp group by deptno);
+
+select
+mgr
+from emp
+group by mgr
+having count(mgr)=(select max(count(*)) from emp group by mgr);
+
+select
+count(decode(deptno, 10, 10)),
+count(decode(deptno, 30, 30))
+from emp;
+
+select
+empno,
+ename,
+job,
+sal
+from emp
+where 
+job=(select job from emp where empno=7521)
+and
+sal>(select sal from emp where empno=7934);
+
+
+
+
