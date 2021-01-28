@@ -1,11 +1,21 @@
 INDEX VERSION 1.131
-C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3125105771.index
-\day02\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4199276486.index
+\day03\src
 C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\635091326.index
 \dayzero\src
-C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
-\day01\src
-C:\Users\stxz\Desktop\bitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
-\day01\src
 C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2528586506.index
 \dayzero\src
+C:\Users\stxz\Desktop\bitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
+\day01\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1433989515.index
+\day04\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3453716123.index
+\day01\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3125105771.index
+\day02\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\568334340.index
+\day03\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1500956959.index
+\exercise01\src
+C:\Users\stxz\Desktop\bitcamp\nowBitcamp\Webwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2711850393.index
+\test02\src

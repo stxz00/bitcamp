@@ -1,0 +1,4 @@
+윈도우-프리퍼런스-java-installed JREs-jdk1.8 add하고
+새 일반 프로젝트 만들고 우클릭->빌드패스->애드 익스터널아카이브스->ojdc.jar 적용해주면 끝!
+
+다른것들이 버전이 달라 오류나니 project facets에서 java 15를 1.8로 바꿔주면 됨
