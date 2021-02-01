@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+
+		<tr>
+			<td align="center" bgcolor="gray">
+				<a href="<%=path %>index.jsp">[HOME]</a>
+				<a href="<%=path %>intro.jsp">[INTRO]</a>
+				<a href="<%=path %>bbs1/list.jsp">[BBS1]</a>
+				<a href="<%=path %>bbs2/list.jsp">[BBS2]</a>
+			</td>	
+		</tr>
+		<tr>
+			<td>
+			<!-- 매 페이지마다 바뀌는 부분(시작) -->

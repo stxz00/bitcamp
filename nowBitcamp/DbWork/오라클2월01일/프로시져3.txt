@@ -1,0 +1,14 @@
+--if조건문
+declare
+ a number :=0;
+begin
+ if a>0 then 
+	dbms_output.put_line('0보다 크다');
+ elsif a=0 then
+	dbms_output.put_line('0입니다');
+ else
+	dbms_output.put_line('0보다 작다');
+ end if;
+end;
+/
+

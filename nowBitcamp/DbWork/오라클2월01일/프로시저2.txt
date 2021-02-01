@@ -1,0 +1,12 @@
+declare
+v_empno emp.empno%type :=7499;
+--v_ename emp.ename%type;
+--v_sal emp.sal%type;
+v_row emp%rowtype;
+begin
+select ename,sal into v_row.ename, v_row.sal from emp where empno=v_empno;
+dbms_output.put_line('ename='||v_row.ename);
+dbms_output.put_line('sal='||v_row.sal);
+end;
+/
+

@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+	<table width="100%">
+		<tr>
+			<td><img alt="" src="/day06/imgs/blue_logo.png"> </td>
+		</tr>
+<%@page import="java.sql.*"%>		
+<% 
+				String driver="oracle.jdbc.driver.OracleDriver";
+				String url="jdbc:oracle:thin:@localhost:1521:xe";
+				String user="scott";
+				String password="tiger";
+				Connection conn=null;
+				Statement stmt=null;
+				ResultSet rs=null;
+%>

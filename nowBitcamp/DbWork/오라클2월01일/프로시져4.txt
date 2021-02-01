@@ -1,0 +1,10 @@
+declare
+ cnt number :=0;
+begin
+ loop
+ EXIT when cnt=5;
+ dbms_output.put_line(cnt);
+ cnt :=cnt+1;
+ end loop;
+end;
+/

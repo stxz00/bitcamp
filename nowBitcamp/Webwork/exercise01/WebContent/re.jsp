@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ㄴㄴ</title>
 </head>
 <body>
 	<h1>답글 입력 페이지</h1>
