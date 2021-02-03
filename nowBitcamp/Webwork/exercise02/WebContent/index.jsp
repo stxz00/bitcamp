@@ -21,12 +21,20 @@
 	try{
 		p=Integer.parseInt(request.getParameter("p"));
 	}catch(NumberFormatException e){}
-
 	
+	String key=request.getParameter("key");
+	String word=request.getParameter("word");
+	if(key==null)key="sub";
+	if(word==null)word="";
 	
-	
-	String sql="select sub,id,nalja from exercise02_guest order by num desc";
+	String sql="select * from (select rownum as rn,num,id,sub,content,nalja,cnt,ref,ord,lev from exercise02_guest where ord=0 order by num desc) "
+			+"where "+key+" like '%"+word+"%' "
+			+"and rn between (select max(rn)-("+(p-1)+"*14)-13 from "
+			+"(select * from (select rownum as rn,num,id,sub,content,nalja,cnt,ref,ord,lev from exercise02_guest where ord=0 order by num desc))) and (select max(rn)-"+"("+(p-1)+"*14) from "
+			+"(select * from (select rownum as rn,num,id,sub,content,nalja,cnt,ref,ord,lev from exercise02_guest where ord=0 order by num desc))) order by rn desc";
+	System.out.println(sql);
 	java.util.ArrayList<Al> list=new ArrayList<Al>();
+	ArrayList<Al> ranklist= new ArrayList<Al>();
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
 	String user="scott";
 	String password="tiger";
@@ -41,17 +49,42 @@
 		rs=pstmt.executeQuery();
 		while(rs.next()){
 			Al al = new Al();
+			al.num=rs.getInt("num");
 			al.sub=rs.getString("sub");
 			al.id=rs.getString("id");
 			al.nalja=rs.getDate("nalja");
 			list.add(al);
 		}
+		rs.close();
+		pstmt.close();
+		sql="select count(*) from exercise02_guest";
+		pstmt=conn.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		if(rs.next())total=rs.getInt(1);
+		System.out.println(total);
+		rs.close();
+		pstmt.close();
 		
+		sql="select * from exercise02_guest order by cnt desc, num desc";
+		pstmt=conn.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		int a=0;
+		while(rs.next()){
+			a++;
+			Al al = new Al();
+			al.num=rs.getInt("num");
+			al.sub=rs.getString("sub");
+			al.id=rs.getString("id");
+			al.nalja=rs.getDate("nalja");
+			ranklist.add(al);
+			if(a==3)break;
+		}
 	}finally{
 		if(rs!=null)rs.close();
 		if(pstmt!=null)pstmt.close();
 		if(conn!=null)conn.close();
 	}
+
 %>
 
 <body bgcolor="#FFFAFA">
@@ -168,8 +201,6 @@
 				
 			</table>
 			</td>
-			
-
 			<td  bgcolor="white" align="left" valign="top" width="1200">
 				<table width="98%" height="90%" align="center">
 					<tr>
@@ -211,36 +242,28 @@
 						<td align="center" width="600" bgcolor="#F5F5F5" style="font-size:13px; color: #4B0082"><strong>20/19/18</strong>
 						</td>
 					</tr>
+					
+					<%
+						for(int i=0; i<ranklist.size(); i++){	
+							Al al=ranklist.get(i);
+					%>
 					<tr>
-						<td height="35" bgcolor="#E6E6FA" style="font-size:13px;">&nbsp;<strong style="font-size:9pt;">檣晦</strong>&nbsp;<img alt="" src="imgs/star2.png">&nbsp;塒煎中中中中中中中中中中中中中中中中中中中中中中中中中中中中
+						<td height="35" bgcolor="#E6E6FA" style="font-size:13px;">&nbsp;<strong style="font-size:9pt;">檣晦</strong>&nbsp;<img alt="" src="imgs/star2.png">&nbsp;<a href="detail.jsp?num=<%=al.num %>" style="text-decoration: none; color: #000000" ><%=al.sub %></a>
 						</td>
-						<td align="center" width="900" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong>塒煎諦耀掘</strong>
+						<td align="center" width="900" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong><%=al.id %></strong>
 						</td>
-						<td align="center" width="600" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong>20/19/18</strong>
+						<td align="center" width="600" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong><%=al.nalja %></strong>
 						</td>
 					</tr>
-					<tr>
-						<td height="35" bgcolor="#E6E6FA" style="font-size:13px;">&nbsp;<strong style="font-size:9pt;">檣晦</strong>&nbsp;<img alt="" src="imgs/star2.png">&nbsp;塒煎中中中中中中中中中中中中中中中中中中中中中中中中中中中
-						</td>
-						<td align="center" width="900" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong>塒煎諦耀掘</strong>
-						</td>
-						<td align="center" width="600" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong>20/19/18</strong>
-						</td>
-					</tr>
-					<tr>
-						<td height="35" bgcolor="#E6E6FA" style="font-size:13px;">&nbsp;<strong style="font-size:9pt;">檣晦</strong>&nbsp;<img alt="" src="imgs/star2.png">&nbsp;塒煎中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中
-						</td>
-						<td align="center" width="900" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong>塒煎諦耀掘</strong>
-						</td>
-						<td align="center" width="600" bgcolor="#E6E6FA" style="font-size:13px; color: #4B0082"><strong>20/19/18</strong>
-						</td>
-					</tr>
-				<% 
+					<% 
+						}
+					%>
+				<%
 					for(int i=0; i<list.size(); i++){
 						Al al=list.get(i);
 				%>
 						<tr>
-							<td height="35" style="font-size:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="" src="imgs/qq.png">&nbsp;<%=al.sub %>
+							<td height="35" style="font-size:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="" src="imgs/qq.png">&nbsp;<a href="detail.jsp?num=<%=al.num %>" style="text-decoration: none; color: #000000" ><%=al.sub %></a>
 							</td>
 							<td align="center" width="900" style="font-size:13px; color: #4B0082"><strong><%=al.id %></strong>
 							</td>
@@ -249,17 +272,49 @@
 						</tr>
 				<%
 					}
-				%>	
+				%>
 					<tr>
 						<td height="25" width="300" colspan="3" style="font-size: 20px;">
 						<form action="add.jsp" >
 							<img alt="" src="imgs/famous.png">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="#.jsp" style="text-decoration: none">[1]</a>
-							<a href="#.jsp" style="font-size: 100">[2]</a>
-							<a href="#.jsp" style="font-size: 100">[3]</a>
-							<a href="#.jsp" style="font-size: 100">[4]</a>
-							<a href="#.jsp" style="font-size: 100">[>]</a>
+						<%
+						int end=p;
+						int start=(p-1)/5*5;
+						System.out.println("start="+start);
+						if(total%14==0){
+							System.out.println("跟檜 0");
+							end=total/14;
+						}else{
+							System.out.println("跟檜 0嬴椒");
+							end=(total/14)+1;
+							System.out.println(end);
+						}
+						
+						if(start+5<end){
+							end=start+5;
+						}
+						if(p>5){
+						%>
+							<a href="index.jsp?p=<%=start %>">[●]</a>
+						<% 	
+						}
+						for(int i=start; i<end; i++){
+							if(p!=i+1){
+						%>
+							<a href="index.jsp?p=<%=i+1 %>">[<%=i+1 %>]</a>
+						<%
+							}else{
+								out.println("["+p+"]");
+							}
+						}
+						if(start+5<total/14+1){
+						%>
+							<a href="index.jsp?p=<%=end+1 %>">[△]</a>
+						<% 
+						}
+						%>
+
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="image" src="imgs/gl.png">
 						</form>
@@ -267,14 +322,14 @@
 					</tr>
 					<tr>
 						<td align="center"  width="300" colspan="2" style="font-size: 15px;">
-							<form action="#.jsp" style="float:left;margin:0;" >
+							<form style="float:left;margin:0;" >
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<select name="#" style="font-size: 17px;">
+								<select name="key" style="font-size: 17px;">
 									<option value="sub">薯跡
-									<option value="name">棣啻歜
+									<option value="id">棣啻歜
 								</select>
-								<input type="text" width="700" style="font-size: 17px;" value="匐儀橫">
-								<input type="image" src="imgs/ww.png" align="bottom" >
+								<input type="text" width="700" style="font-size: 17px;" name="word" value="匐儀橫">
+								<input type="image" src="imgs/ww.png" align="bottom" value="submit" name="submit" >
 							</form>
 						</td>
 					</tr>

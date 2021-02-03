@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stysheet" type="text/css">
+            /* +는 바로 그 다음에 것을 말함.
+            ~은 형제들
+            :first-child ~의 자식의 ~첫번째 자식이 ~면 해라 
+            :last-child  ~의 자식의 ~마지막 자식이 ~면 해라
+            :nth-child
+            >은 자식선택자(자식만임) 스페이스바는 자식을 포함한 자손선택자! 차이 분명히 알기*/
+            ul>li:nth-child(2n-1){
+                color:blue;
+            }
+            
+            div>h2:nth-child(6){
+                color: red
+            }
+
+            div>ul>li:last-child{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>태그선택자로 특정엘리먼트 접근</h1>
+        <div>
+            <h2>제목1</h2>
+            <p>내용</p>
+            <h2>제목2</h2>
+            <p>내용1</p>
+            <p>내용2</p>
+            <h2>제목3</h2>
+            <p>내용4</p>
+            <p>내용5</p>
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+                <li>item4</li>
+            </ul>
+        </div>   
+            <ul>
+                <li>item5</li>
+                <li>item6</li>
+                <li>item7</li>
+                <li>item8</li>
+            </ul>
+       
+    </body>
+</html>
