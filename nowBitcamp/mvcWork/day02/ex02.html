@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 인풋과 라벨 구분 */
+            /*
+            : ~의
+            
+            input{
+                color: blue;
+                background: yellow;
+            }
+            button{
+                color:red;
+            }
+            속성 선택자
+            [type]
+            [type='타입']
+            [type^='te'] te로 시작하는 속성
+            [type$='xt'] xt로 끝나는 속성
+            [type*='t'] t가 들어가는 속성(특정 문자가 들어가는 따로따로는 안된다
+            */
+            /*
+            [type*='re']{
+                color:red;
+            }
+            :not(인자) 인자가 아닌 것들  
+            
+            */
+            :not(input){
+                color:blueviolet;
+            }
+            /*
+            [readonly='readonly']{
+                color:cadetblue;
+            }
+            [readonly]{
+                color:cadetblue;
+            }
+            }
+            input:disabled{
+                color: dodgerblue;
+            }
+            */
+            input:read-only{
+                color:cadetblue;
+            }
+            
+            [disabled]{
+                color:darksalmon;
+            }
+                
+            input:checked+label{
+                color:red;
+            }
+            input:checked+label{
+                color:red;
+            }
+            
+            [selected]{
+                color: darkcyan;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <h1>회원가입 페이지</h1>
+        <form>
+            <!-- for는 이 인풋의 이 라벨이란 것. 디자인적으로 개행되는 것은 없음 -->
+            <div>
+                <label for="id">id</label>
+                <input type="text" id="id" value="aaaa" readonly/>
+            </div>
+            <div>
+                <label for="pw">pw</label>
+                <input type="password" id="pw"/>
+            </div>
+            <div>
+                <label for="url">url</label>
+                <input type="url" id="url" value="http://naver.com" disabled/>
+            </div>
+            <div>
+                <label for="file">file</label>
+                <input type="file" id="file"/>
+            </div>
+            <div>
+                <input type="checkbox" id="cg1"/>
+                 <label for="ch1">ch1</label>
+                <input type="checkbox" id="ch2"/>
+                 <label for="ch2">ch2</label>
+                <input type="checkbox" id="ch3"/>
+                <label for="ch3">ch3</label>
+            </div>
+            <div>
+                <input type="radio" name="ra" id="ra1"/>
+                 <label for="ra1">ra1</label>
+                <input type="radio" name="ra" id="ra2"/>
+                 <label for="ra2">ra2</label>
+                <input type="radio" name="ra" id="ra3"/>
+                <label for="ra3">ra3</label>
+            </div>
+            <div>
+                <select>
+                    <option>item1</option>
+                    <option selected>item2</option>
+                    <option>item3</option>
+                    <option>item4</option>
+                </select>
+            </div>
+            <div>
+                <textarea></textarea>
+            </div>
+            <div>
+                <input type="submit" value="submit1"/>
+                <input type="reset" value="reset1"/>
+                <input type="button" value="btn1"/>
+            </div>
+            <div>
+                <button type="submit">submit2</button>
+                <button type="reset">reset2</button>
+                <button type="button">btn2</button>
+                <button>btn3</button>
+            </div>
+        </form>
+    </body>
+</html>

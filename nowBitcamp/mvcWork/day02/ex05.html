@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 
+            블록라벨은 쌓임
+            인라인라벨은 딱붙어서됨. 사이즈를 줘도 안먹힘
+            즉 콘텐츠(내용)의 사이즈에 따라 결정됨.
+            그래서 display 속성을 block을 주면 먹힘
+            디폴트 잘 이해하고 필요할때마다 변경하기!
+            */
+            h1{
+                background-color: aqua;
+                /* border는 아래 3개를 다 줘야 보인다 그냥 border로 4곳다 줄 수 있음*/
+                border: black 1px solid; /* 순서는 상관이 없다 */
+                /*
+                border-bottom-color: black;
+                border-bottom-color: 10px;
+                border-bottom-style: solid;
+                border-top-color: red;
+                border-top-color: 10px;
+                border-top-style: solid;
+                */
+                /*width: 100px;*/
+                display: block;
+                /* 마진은 맞닿아있는 것들도 줘야 붙게됨 */
+                margin: 0;
+            }
+            p{
+                background-color: bisque;
+                width: 200px;
+                margin: 0;
+            }
+            
+            h1+p{
+                /*
+                    마진을 상하좌우 다 주고 싶으면 그냥 마진 그래서 위에 0을 준거
+                    상 오른쪽 아래 왼쪽 순
+                    2개만 쓰면 상 왼쪽임
+                */
+                margin: 150px 0px;
+                border: black 10px solid;
+                /* 패딩은 content 와 보더 사이의 공간을 늘려준다! */
+                padding :100px;
+            }
+            /* 보더를 준 만큼 넓이도 늘어남 */
+            a{
+                background-color: gray;
+                width: 50px;
+                height: 20px;
+                display: inline-block;
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+        <h1>제목</h1>
+        <p>내용1 내용2</p>
+        <p>내용3<a href="#">link</a><a href="#">link</a><a href="#">link</a></p>
+    
+</html>

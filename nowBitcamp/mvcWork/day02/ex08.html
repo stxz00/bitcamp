@@ -1,0 +1,81 @@
+<!dotype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            /* 
+                디자인들은 모든 마진을 0부터 시작함. 아래처럼 넣음
+                *,body{
+                    margin: 0; 
+                }
+            */
+            body{
+                margin: 0;
+            }
+            div{
+                width: 100px;
+                height: 100px;
+            }
+            body>div:first-child{
+                background-color: blue;
+              
+            }
+            body>div:nth-child(2){
+                background-color: red;
+                /* position의 디폴트는 static
+                    마진을 이용해서 쓴다
+               
+                position: static;
+                margin-left: 100px;
+                margin-top: 50px;
+                 */
+                /*absolute만 주면 덮어짐
+                    문서 기준 절대값을 기준으로 함! 한마디로 좌표임
+                    position: absolute;
+                    top:-50px;
+                    left: 100px;
+                */
+                /* 
+                    해당 위치에 스크롤 바가 움직여도 화면기준으로 고정됨 
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                */
+                /* 상대적인 좌표. 원래 자기가 있었던 기준으로 좌표를 편성함 
+                    가장 많이 쓰이며 아무것도 안줘도 static과 같으므로!
+                */
+                position: relative;
+                top: 50px;
+            }
+            body>div:nth-child(3){
+                background-color: green;
+               
+            }
+            body>div:nth-child(4){
+                background-color: violet;
+            }
+       
+
+        </style>
+    </head>
+    <body>
+        <!-- div는 마진이 0임 즉, body에도 마진이 있다 -->
+        <div>box1</div>
+        <div>box2</div>
+        <div>box3</div>
+        <div>box4</div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/> <br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/> <br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/> <br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/> <br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/> <br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/> <br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/>
+    </body>
+</html>

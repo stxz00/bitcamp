@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            img{
+                /* float을 적용하면 이미지를 두고 문자끼리 정렬함! 
+                    position은 이미지를 없는 셈 치고 문자등을 정렬하는 것임!
+                    그냥 두면 중간에 나오는 이미지는 아예 이미지 자리 비움
+                */
+                float: left;
+                width: 300px;
+            }
+            img+p+p{
+                /*clear: left;*/ /*left쪽의 영향을 받지 않도록 함 right쪽은 영향받음*/
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+      
+        <p>HTML Tables. HTML tables allow web developers to arrange data into rows and columns.</p>
+      
+        <p>HTML Tables. HTML tables allow web developers to arrange data into rows and columns.</p>
+        <img src="imgs/index.jpg">
+        <p>HTML Tables. HTML tables allow web developers to arrange data into rows and columns.</p>
+        <p>HTML Tables. HTML tables allow web developers to arrange data into rows and columns.</p>
+    </body>
+</html>

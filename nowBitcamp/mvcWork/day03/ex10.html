@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style rel="stylesheet" type="text/css">
+            div{
+                background-color: gray;
+            }
+            /* 모바일 */
+            @media screen and (max-width:1023px){
+                div{
+                    width: 100%;
+                    background-color: aqua;
+                }
+                ul{
+                    list-style: none
+                }
+                ul>li{
+                    height: 50px;
+                }
+            }
+            /* 데스크탑 */
+            @media screen and (min-width:1024px){
+                div{
+                    width: 1024px;
+                    background-color: yellow;
+                }
+                ul{
+                    list-style: none;
+                }
+                ul>li{
+                    float: left;
+                }
+            }
+        </style>
+    </head>
+
+<body>
+    <div>
+        <h1>제목</h1>
+        <p>내용</p>
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+        </ul>
+    </div>
+</body>
+</html>

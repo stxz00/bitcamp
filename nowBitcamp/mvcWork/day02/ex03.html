@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+        /* 
+            html의 에러는 그 다음의 내용들도 깨질 가능성도 있다 
+            폰트 사이즈 : px,pt,cm,em,% 등 
+            em은 상대적인 디폴트 사이즈 기준. 1em=1배 2en=2배 
+            %도 상대적인 디폴트의 사이즈 기준
+            
+            font-style: 기울임 등
+            font-weight: 굵기 정도
+            font-family: 글꼴
+        */
+            /*        
+            body>p:nth-child(2){
+                 color: aqua; 
+                font-size: 3em;
+                font-style: italic;
+                font-weight: bold;
+           
+                 
+                폰트-패밀리는 사용자의 pc에 글꼴이 없을 경우가 있으므로
+                1순위 2순위 등을 매겨 적용받도록 한다.(다 없으면 디폴트 글꼴)
+                
+                font-family: "궁서체","굴림체",sans-serif;
+            }
+            */
+            /*
+            h1{
+                background-color: yellow;
+                text-align: left;
+                height: 100px;
+                
+                    텍스트를 가운데 두고 싶으면 line-height를 높이만큼 주면 됨
+                    자유롭게 높이 조정이가능
+                
+                line-height: 100px;
+                  글자 가로 위치 조정! text-indent: -50px; 도 됨
+                text-indent: 100px;   
+            }
+           */
+            
+            h1{
+                /*              
+                background-color: aqua;
+                제목을 숨기고 회사 로고를 넣는 기본적인 방법
+                */
+                background-image: url(imgs/blue_logo.png);
+                background-repeat: no-repeat;
+                
+                text-indent: -999px;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <h1>제목</h1>
+        <p>내용</p>
+        <p>내용<br/>내용</p>
+        <p>내용</p>
+        <p>내용</p>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+        <div>box1</div>
+        <div>box2</div>
+        <div>box3</div>
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>
+        
+        
+    </body>
+</html>

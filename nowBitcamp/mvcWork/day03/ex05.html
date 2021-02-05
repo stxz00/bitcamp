@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css"?>
+            
+            ul>li{
+                text-align: right;
+                width: 620px;
+                height: 365px;
+               
+                transition-duration: 2s;
+                background-image: url("https://img.hankyung.com/photo/202002/01.21817293.1.jpg");
+                background-repeat: no-repeat;
+                background-position: right;
+            }
+            
+            ul:first-child{
+                 transition-timing-function: ease; /*가속(부드럽게 안주면 일정하게 줌)*/
+            }
+            
+            ul:last-child{
+                transition-timing-function: ease-out;
+                
+            }
+            
+            li:hover{
+                width: 1000px;
+            }
+            
+            ol{ 
+                width:728px;
+                height: 700px;
+                background-image: url("https://www.codingfactory.net/wp-content/uploads/css-transition-timing-function-01.gif");
+                background-repeat: no-repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>animation</h1>
+        <ul>
+            <li></li>
+        </ul>
+        <br/>
+        <ol>
+            <li></li>
+        </ol>
+        
+    </body>
+</html>

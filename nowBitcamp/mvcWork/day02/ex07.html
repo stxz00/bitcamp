@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            table{
+                width: 100%; /* 퍼센트를 하면 동적으로 처리됨 */
+                border: 1px solid gray; /*겉테두리만됨*/
+               /*border-spacing: 0px;*/ /*간격이 붙어서 2픽셀의 한 간격이 됨 여긴 1+1=2픽셀두께 */
+                border-collapse: collapse; /*하나의 선으로 만듬! 1픽셀두께!*/
+            }
+            th,td{
+                border: 1px solid gray;
+               
+            }
+            table>thead>tr>th{
+                /* rgb값에서 투명도를 추가한 rgba */
+                background-color: rgba(0,100,0,0.3);
+                /* 엘리먼트까지 투명도를 적용함 */
+                /*opacity: 0.5; */
+                display: none;
+            }
+            table>tbody>tr:nth-child(2n)>td{
+                /* RGB. #cccccc처럼 동일한 영어면 ccc로 줄여 쓸 수 있다. */
+                 background-color: #ccc; 
+                
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>테이블 태그</h1>
+            <table>
+                <caption>표제</caption><!-- 어느 위치든 상관없음 -->
+                <!-- thead,tbody 없어도 자동으로 생략되어 만들어져있음
+                     만약 모두 생략되어 있으면 브라우저에 따라 tbody로만 구성된다던지
+                    thead,tbody 또는 tbody가 각 tr마다 있는 곳이 있음
+                    그렇기 때문에 직접 명시해주는 게 최고의 방법!                -->
+                <thead>
+                    <tr>
+                        <th><a href="#">컬럼1</a></th>
+                        <th>컬럼2</th>
+                        <th>컬럼3</th>
+                        <th>컬럼4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>val-1</td>
+                        <td>val</td>
+                        <td>val</td>
+                        <td>val</td>
+                    </tr>
+                    <tr>
+                        <td>val-2</td>
+                        <td>val</td>
+                        <td>val</td>
+                        <td>val</td>
+                    </tr>
+                    <tr>
+                        <td>val-3</td>
+                        <td>val</td>
+                        <td>val</td>
+                        <td>val</td>
+                    </tr>
+                    <tr>
+                        <td>val-4</td>
+                        <td>val</td>
+                        <td>val</td>
+                        <td>val</td>
+                    </tr>
+                     <tr>
+                        <td>val-5</td>
+                        <td>val</td>
+                        <td>val</td>
+                        <td>val</td>
+                    </tr>
+                     <tr>
+                        <td>val-6</td>
+                        <td>val</td>
+                        <td>val</td>
+                        <td>val</td>
+                    </tr>
+                </tbody>     
+            </table>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: aqua;
+            }
+            #target1{
+                background-color: blue;
+               /* position: absolute;*/
+                /*position: fixed;*/
+                /* 중요! 앱솔루트를 하게 되면 릴레이티브와 달리 다른 box들이
+                빈공간을 채움!! 릴레이티브는 그냥 그대로 두고!
+                */
+                position: relative;
+                
+                left: 50px;
+                top:50px;
+            }
+            #target2{
+                width:  50px;
+                height: 50px;
+                background-color: red;
+                /*position: relative;
+                top: 0px;*/
+                /*margin-left: -70px;*/
+                /* 부모가 앱솔루일때 나도 앱솔루트면 기준이 부모 기준이 된다! */
+                /*position: absolute;
+                top:-10px;*/
+                /* 픽스드는 부모의 기준 다 상관없이 화면기준임! 
+                    position: fixed;
+                    top: 0;
+                */
+                /* 릴레이티브는 자기 원래 위치 기준이니 상관없다 
+                position: relative;
+                top=0px;
+                */
+                /*position: absolute;
+                top: 0px;*/
+                /*position: relative;
+                top: -50px;*/
+               /* margin-left: -30px;*/
+               /* position: fixed;*/
+                
+                position: absolute;
+                top: 0px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div>box1</div>
+        <div id="target1">box2<div id="target2">box3</div>
+        </div>
+        <div>box4</div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
+    </body>
+</html>
