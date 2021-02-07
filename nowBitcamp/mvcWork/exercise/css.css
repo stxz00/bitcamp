@@ -1,0 +1,102 @@
+.row{
+    clear: both;
+}
+
+.container{
+    margin: 0px auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .container{
+        width: 1024px;
+    }
+    .pclear{
+      display: none;  
+    }
+    .gridp1,.gridp2,.gridp3,.gridp4,.gridp5,.gridp6,.gridp7,.gridp8,.gridp9,.gridp10,.gridp11,.gridp12{
+        float: left;
+    }
+    
+    .gridp1{
+        width: 85.33px
+    }
+    .gridp2{
+        width: 170.66px
+    }
+    .gridp3{
+        width: 256px
+    }
+    .gridrp4{
+        width: 341.33px
+    }
+    .gridp5{
+        width: 426.66px
+    }
+    .gridp6{
+        width: 512px
+    }
+    .gridrp7{
+        width: 597.33px
+    }
+    .gridp8{
+        width: 682.66px
+    }
+    .gridp9{
+        width: 768px
+    }
+    .gridp10{
+        width: 853.33px
+    }
+    .gridp11{
+        width: 938.66px
+    }
+    .gridp12{
+        width: 1024px
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .mclear{
+      display: none;  
+    }
+    .gridm1,.gridm2,.gridm3,.gridm4,.gridm5,.gridm6,.gridm7,.gridm8,.gridm9,.gridm10,.gridm11,.gridm12{
+        float: left;
+    }
+    
+    .gridm1{
+        width: 8.33%
+    }
+    .gridm2{
+        width: 16.66%
+    }
+    .gridm3{
+        width: 25%
+    }
+    .gridm4{
+        width: 33.33%
+    }
+    .gridm5{
+        width: 41.66%
+    }
+    .gridm6{
+        width: 50%
+    }
+    .gridm7{
+        width: 58.33%
+    }
+    .gridm8{
+        width: 66.66%
+    }
+    .gridm9{
+        width: 75%
+    }
+    .gridm10{
+        width: 83.33%
+    }
+    .gridm11{
+        width: 91.66%
+    }
+    .gridm12{
+        width: 100%
+    }
+}

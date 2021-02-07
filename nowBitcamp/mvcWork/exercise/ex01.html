@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel="stylesheet" type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #navi{
+            background-color: gray;
+        }
+        #navi>h2{
+            margin: 30px;
+            width: 149px;
+            height: 33px;
+            text-indent: -999px; 
+            background-image: url("imgs/blue_logo.png");
+            background-repeat: no-repeat;
+        }
+        
+        #navi>ul{
+            background-color: gray;
+            overflow: hidden;
+            width: 400px;
+            margin: 0px auto;
+            list-style: none;
+        }
+        #navi>ul>li{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            background-color: gray;
+            float: left;
+        }
+        #navi>ul>li>a{
+            
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+        #content{
+            float: left;
+            width: 60%;
+            height: 100%;
+            
+        }
+        #content>img{
+            width: 80%;
+            display: block;
+            margin: 0px auto;
+            margin-top: 100px;
+            margin-left: 0px auto;
+            
+        }
+        #article{
+            float: left;
+            width: 40%;
+        }
+        
+        #article>ul{
+            list-style: none;
+            
+        }
+        #article>ul>li{
+            text-indent: 5000px;
+        }
+        #article>ul>li>a{
+            display: block;
+            height: 150px;
+            width: 200px;
+            margin: 0px auto;
+            margin-top: 50px;
+        }
+        #article>ul>li:first-child>a{
+            background-image: url("https://logoproject-phinf.pstatic.net/20201104_196/1604469969558l66ff_GIF/%ED%9B%88%EB%A7%B9%EC%A0%95%EC%9D%8C_NM_%EB%AA%A8%EC%85%98_3X.gif?type=w750");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        #article>ul>li:nth-child(2)>a{
+            background-image: url("https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        #article>ul>li:nth-child(3)>a{
+            background-image: url("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        
+        #footer{
+            background-color: gray;
+            clear: both;
+            text-align: center;
+        }
+    </style>
+    <title> Title </title>
+</head>
+
+<body>
+    <div id="header">
+        <h2>비트캠프</h2>
+    </div>
+    <div id="navi">
+        <ul>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h2>환영합니다</h2>
+        <img src="imgs/index.jpg">
+    </div>
+    <div id="article">
+          <ul>
+              <li><a href="http://naver.com">naver</a></li>
+              <li><a href="http://daum.net">daum</a></li>
+              <li><a href="http://google.com">google</a></li>
+          </ul>
+    </div>
+    <div id="footer">
+        (주)비트컴퓨터
+        <address>서울특별시 종로구 종로 69 YMCA 7층</address>
+        Copylight &copy;비트캠프 All rights reserved.
+        
+    </div>
+</body>
+
+</html>
