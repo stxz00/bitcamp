@@ -26,9 +26,9 @@
             console.log(new Date());
         },1000); */
         //위의 경우는 계속 자원이 누적되기때문에 인터넷 성능이 매우 떨어짐. 
-        var callback=function(){
+        var callback=function(){//재귀함수
             console.log(new Date());
-            window.setTimeout(callback,1000); //재귀함수
+            window.setTimeout(callback,1000); 
         }
         var c=window.setTimeout(callback,1000);
         //자원이 반납되고 다시 새롭게 자원소모 적게 가능함. 자기는 사라지고 새로운 객체가 찍혀서 데이트찍히는것

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        ul{
+            list-style: none;
+            width: 1280px;
+            height: 320px;
+            overflow: hidden;
+        }
+        li{
+            float: left;  
+        }
+        img{
+            display:block;   
+        }
+    </style>
+</head>
+
+<body>
+    <h1>queryselector</h1>
+    <button onclick="append()">append</button>
+    <button onclick="prev()">prev</button>
+    <ul>
+        <li><img src="imgs/big01.jpg"/></li>
+        <li><img src="imgs/big02.jpg"/></li>
+        <li><img src="imgs/big03.jpg"/></li>
+        <li><img src="imgs/big04.jpg"/></li>
+        <li><img src="imgs/big05.jpg"/></li>
+        <li><img src="imgs/big06.jpg"/></li>
+    </ul>
+    
+    <script type="text/javascript">
+        function append(){      document.querySelector("ul").appendChild(document.querySelector("li"));
+            setTimeout(append,300);
+        }
+        //var ap=window.setTimeout(append,300);
+        function prev(){    document.querySelector("ul").prepend(document.querySelectorAll("li")[document.querySelectorAll("li").length-1]);
+            setTimeout(prev,300);
+        }
+    </script>
+</body>
+
+</html>
