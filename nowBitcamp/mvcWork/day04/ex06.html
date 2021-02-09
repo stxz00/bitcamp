@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //같은 스크립트 내에는 메소드와 호출 순서 상관없이 가능.
+        // function은 스태틱메소드처럼 function영역에 먼저 올려놓고 시작함. 
+        func01(); // 2 이거 실행
+        
+        // funcfion 자체가 오버로드이기 때문에 
+        var su=func01();//파라미터 값을 안줘도, 파라미터 값 부족하게 줘도 undefined!
+            console.log(su); //리턴값이 없어도 undefined가 있어서 이상없음.
+       
+        var su2=function func01(){
+            console.log("func01()-55555 run...");
+        }
+        su2();
+        var su1=function (){
+            console.log("익명함수(어나니머스 함수)...");
+            return;
+        }
+        su1();//익명함수
+        
+        //(중요) 그래서 function 또한 자료형이므로 동일한 이름의 펑션이 있으면 인자랑 상관없이
+        // 값을 덮어버리는 것이다!!
+        function func01(a,b){  // 1 이거 먼저 올려놓고
+            console.log("func01() run...");
+            //return 1234; //자바와 같이 리턴이 생략.
+            //return;
+            return a+b;
+        }
+        function func01(){ 
+            console.log("func01()-2 run...");
+        }
+        //이렇게 되면 인자의 갯수 상관없이 아예 func01을 덮어버림! 자바같지 않음!
+        var a=1234;
+        var func02=func01;
+        func02(); //펑션자료형으로 받아서 실행함!
+        console.log(typeof func02);
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //밑에서 호출해도 가능.단, 반대로 아래에서 선언하고 위에서 호출할 경우
+        //(중요) 각 스크립트는 각 컴파일되는 순서이므로 여기서는 순서상 선언이 먼저 되지 않았으므로 안됨!
+        func01();
+        console.log(a);
+        //또한 이는 페이지가 갱신되기 전까지 값이 유지되는 것을 알 수 있다.(스코프에서 굉장히 중요!)
+        console.log(func01); //이렇게만 실행하면 func01을 실행하는것(메소드에 관한)
+    </script>
+
+</body>
+
+</html>

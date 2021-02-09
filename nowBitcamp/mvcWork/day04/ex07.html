@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        var a=1234;
+        function func01(a){
+            a++;
+            console.log(a);
+        }
+        func01(a);
+        console.log('a='+a);
+        //인자를 안받을 때는 a 본연을 쓰겠지만 인자를 a를 받았을 때는
+       /* function func01(a){
+            var a=1234;
+            a++;
+            console.log(a);
+        }*
+        //이렇게 사용한 것이므로 a=1234가 된다!
+        /* function func01(){
+            a=1234;
+            a++;
+            console.log(a);
+        }
+        func01(a);
+        console.log('a='+a); 
+        이렇게 위의 지역변수의 차이가 나옴 여기서는 1235가 나온다
+        */
+        (function func01(){
+            var a=4321; //지역변수!
+            console.log(a);
+        })(); //익명함수가 바로 실행됨.
+        console.log(a); //바깥쪽 1234 출력됨 즉, 바깥쪽은 전역변수되고 안에쪽은 지역변수가 됨
+        //이렇게 만드는게 귀찮아서 아래처럼 만듬
+        let b=1;
+        let b=2; //이렇게 변수 재선언 불가!
+        //const는 상수
+        const c=1234;
+        //c=4321; 위 선언 후 하면 오류 
+        
+        //즉 let은 변수를 재선언하는게 불가한 것이고 const는 변수의 재선언과 함께 값도 바꿀 수 없다!!!
+        //모든 브라우저가 호환하지않음.
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

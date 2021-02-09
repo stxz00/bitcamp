@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //연산
+
+        var a,b;
+        /*a=new Number(4);*/
+        /*b=new Number(4);*/
+        /*b=3;
+        b++;*/
+        //a=4; 
+        //b=4; //위에 같은 숫자를 선언했으면 다음 아래에 오는 객체가 같은 숫자면 같은 주소를 찍음!중요
+        //b=3;
+        //b++; //이렇게 ++했을 때도 그때 숫자가 같으면 같은 객체!
+        //단! 위의 new Numer로 서로 같은 숫자를 하게 되면 다른 객체주소로 찍는다!
+        //a=new Number(4); //new Number로 만들면 object타입임.
+        a='4' 
+        //문자열과 숫자를 연산했는데 +만 우리가 아는대로 44나옴, 다른 연산은 다 숫자로 연산됨.
+        //이는 어디까지나 perseInt한 것! (어떻게든 수행되기 위해 자동으로 parseInt하고 연산해버림)
+        //다른 '4a' 이렇게 하면 덧셈빼고 NaN 나옴~
+        b=4;
+        //b=a;
+        console.log(a+b); 
+        console.log(a-b);
+        console.log(a*b);
+        //실수로 처리하기 때문에 자동. .0도 상관없이 누락~
+        console.log(a/b);
+        console.log(a%b);
+        console.log(true&&false);
+        console.log(true||false);
+        console.log(a==b); // == value(주소값)
+        console.log(a===b); // === value와 type of 까지 같아야함 
+        console.log(a!=b);
+        console.log(a!==b);
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

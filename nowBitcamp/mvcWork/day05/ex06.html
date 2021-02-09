@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //JSON : 통신규격. 이를 다른 언어들이 받을때마다 ArrayList등으로 
+        // 해당 타입에 맞는 것으로 바꿔서 받음
+        // 이때부터는 통신규격에 맞춰서 문자열은 ""으로 잘 구분해서 해야함
+        var obj1={"key1":"val1","key2":1234};
+        console.log(JSON.stringify(obj1));
+        console.log("------------------------------");
+        for(i in obj1)
+            console.log(i,obj1[i]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

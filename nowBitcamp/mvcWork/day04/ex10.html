@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        func01(100,10,50,80);
+        
+        function func01(){
+            //console.log('func01() run...',arguments.length);
+            //arguments[0],arguments[1]
+            console.log('func01() run...');
+            for(var i=0; i<arguments.length; i++){
+                console.log(arguments[i]);
+            }
+        }
+        //func02();
+        /*console.log(func02);
+        var func02=function(){
+            console.log('func02() run...');
+        };*/
+        //이 함수는 존재하지만 자료형으로 선언하였으므로 윈도우에대입하기 이전의 상태에서 위 콘솔을 실행을 하기 때문에
+        //실행이 안됨. func01은 값을 올려놓고하니까 되고!
+        //단! 펑션은 무조건 올라가지만 자료형인 var의 func02을 선언할때는 그 시점이 아니기 때문임.
+        /*
+        window.func01=function(){
+            console.log('func01() run...');
+        }
+        */
+        var b=1;
+        var func02=function(){
+            console.log('func02() run...'+b);
+        }
+        function func03(a){
+            // callback function
+            a(); // func02가 수행시점을 짓는 게 아닌 func03이 자기꺼 하다가 func02를 수행하는 게 콜백!
+        }
+        func03(func02); //이게 바로 콜백!
+        window.setInterval(func02,1000); // 1초마다 함수가 자동으로 수행 -> 비동기
+         console.log('-------------------------------');
+        //클로저
+        //라이프사이클의 범위를 벗어나 지역변수의 한계를 극복하고 계속 사용이 가능한 것.
+        var msg='자바';
+        function func04(){
+            var msg='클로저';
+            var func=function(){
+                console.log('inner...'+msg);
+            };
+            return func;
+        }
+        var clz=func04();
+        clz(); //펑션이 중괄호 밖에 나왔는데 값이 유지되고있음. 지역변수의 한계를 극복함
+        clz();
+        
+        var a=()=>{return 1234;}; 
+        //이커마스크립트버전의 에로우펑션. 람다식임(어나니머스클래스). 선언이 단 한 번만 이루어지는 경우 사용.
+        console.log(a());
+        
+        
+    
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

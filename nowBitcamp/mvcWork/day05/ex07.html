@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //함수와 메서드
+        //우리가 만들면 함수다
+        console.log(Math.random());
+        function func01(){
+            console.log('함수');
+        }
+        window.func01(); //이게 함수. 나머지 다 메서드
+        //메서드는 참조변수를 통해 접근, 함수는 펑션 그 자체. 언어마다 메서드와 펑션을 가지고 있는 게 다 다름.
+        window.parseInt("111"); 
+        //근래엔 이젠 이런것도 메서드라고 부름 원칙적으론 함수.(익명함수만 메서드라고 할 수 있었으므로)
+        
+        function Func01(i){
+            if(i){
+            this.name=i;
+            }
+            console.log('함수');
+            console.log(window==this);
+        }
+        Func01();   //이런게 함수! this가 윈도우
+        console.log("---------------");
+        Func01.prototype.kor=90;
+        Func01.prototype.name="나";
+        var a=new Func01("너"); //객체를 찍는 펑션은 대문자로 찍음
+        console.log(a.name,a.kor); //메서드는 this가 객체인거.
+        console.log(name);  
+        //이게 까다로워서 이커마스크립트에서 이걸 가지고 class가 등장함
+        /*class Func02{
+            
+        }*/
+        //그냥 함수와 메서드의 차이만 공부하면 됨.
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

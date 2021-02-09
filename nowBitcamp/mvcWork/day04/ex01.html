@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+        //한줄 주석
+        /*다중 주석*/
+        // 자료형 var(밸리어블)
+        // number타입
+        // 연산을 위해 필요하겠지만 정확한 연산이 아님(모든 것을 실수로 처리해준다!!!!!!중요! 정수와 부동 소수점, 무한대 및 NaN(숫자가 아님)값을 포함한다. 숫자를 위해 만들어진 게 아님, 숫자를 구분하지 않음 .0으로 하면 자동으로 소수점뺌)
+        var a=1.0;
+        //console.log(a);
+        console.log(typeof a,a);
+        // String타입
+        var b="문자열";
+        console.log(b);
+        console.log(typeof b)
+        var c='A';
+        console.log(typeof c);
+        var cc='ABCD';
+        console.log(typeof cc);
+        var ccc='"abacd"';
+        console.log(typeof ccc,ccc);
+        var cccc="\"문자열\"";
+        console.log(typeof cccc,cccc);
+        //문자와 문자열을 구분하지 않고 오직 문자열만 있음! 
+        //따옴표, 쌍따옴표 둘 다 사용가능. 닫기만 제대로 닫기
+        var d="'문자열'";
+        console.log(typeof d,d);
+        var dd="'문\t자\n열'";
+        console.log(typeof dd,dd);
+        var e=new Number(1234);
+        console.log(e);
+        var f=new String("abcd");
+        console.log(f);
+        //자바스크립트는 기본적으로 모든 표현을 객체로 표현. 
+        //wrapper클래스 사용하는것과 같음. 그래서 진보된 언어.
+        //객체의 주소만 담을 수 있으면 됨.
+        //그래서 var로 선언한다는 것은 즉 var이 참조변수라는 것.
+        //자바스크립트는 모든게 다 객체.
+        var g=1234;
+        console.log(typeof g,g);
+        g='ABCD';
+        console.log(typeof g,g); 
+        //이렇게 자료형 그런거 따지는 거 없음. 또한 var은 주소만 다루므로 객체의 주소만 담으면 됨.
+        g=null; //객체 표현 안할려면 null. null 또한 null자료형
+        //브라우저마다 오브젝트로 나오기도 함.(크롬,파폭은 오브젝트)
+        console.log(typeof g,g);
+        var h;
+        console.log(typeof h, h);
+        // null타입과 undefined타입을 구분함. null도 주입한 것이나 마찬가지이므로.
+        // 주소값이 없다는 것은 같음. 
+        // 프로그래머가 주소값이 없다고 주입한 것이 null
+        // 주입조차 안한 게 undefined
+        // 선언 조차 안하고 console.log(h)를 해도 오류처럼 나오지만 원칙적으로 오류 아닌 undefined로 씀.
+        hh=1234;
+        console.log(typeof hh,hh);
+        // 이렇게도 문법상 오류가 전혀 없음.
+        // var 선언과 그냥 쓰는 것에는 오류 구분차이가 있음! 이건 나중에 가면 알게 됨!
+        // 세미콜론 안써도 되지만 초창기때부터 세미콜론 붙이도록 했음 라인 구분 등에 사용도 있음!
+        // 추세는 빼자라고하는 추세일뿐 현상황에선 세미콜론 안쓰면 다른 프로그램에서 문제인 상황이 있음!
+        
+        // Boolean 타입
+        var g=true;
+        console.log(typeof g,g);
+        var i=new Boolean(true);
+        console.log(i);
+        // 6.Array 타입
+        // 7.function 타입
+        
+    </script>
+        
+
+
+    <title> Title </title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+

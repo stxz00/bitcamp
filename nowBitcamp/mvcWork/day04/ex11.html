@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //this
+        console.log(this==window); //최상위 객체인 윈도우. 단 어느때나 최상위는 아님
+        var a=4321;
+        window.a=4321;
+        function func01(){
+            console.log(this==window);
+            window.a=1234;
+        }
+        func01();
+        console.log(a); //펑션을 수행하고나서야 나옴
+        //윈도우 객체에 선언하는게 전역변수.
+        console.log("-----------------------------");
+        var obj={func02:function(){
+            console.log(this==window);
+        }}
+        obj.func02(); //false
+        var arr=[function(){
+            console.log(this==window);
+        }]
+        arr[0](); //false
+        var obj2=new Object();
+        obj2.func03=function(){
+            console.log(this==window); //this==obj2; new Object로 새로운 객체를 찍었으므로 
+        }                               //이는 위의 new Array도 그렇다.
+        obj2.func03();//false
+        console.log("-----------------------------");
+        num=1111;
+        name='guest';
+        var obj3={
+            num:0,
+            setNum:(a)=>{this.num=a;}, //★에로우 펑션에서의 this는 뭐든지 window이다. 그래서 num을 바꿈
+            getNum:()=>{return this.num;},
+            name:'',
+            setName:function(a){
+                this.name=a; //그냥 하면 window.name인 guest를 바꾼다! this로 하면 오브젝트가 된다
+            },
+            getName:function(){
+                return this.name;
+            }
+        };
+        obj3.setName('abcd');
+        console.log(obj3.getName());
+        console.log(name);
+        obj3.setNum(2222);
+        console.log(obj3.getNum());
+        console.log(num);
+      
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

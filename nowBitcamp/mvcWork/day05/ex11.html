@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        ul{
+            list-style: none;
+            padding: 0px;
+            width: 528px;
+            height: 176px;
+            overflow: hidden;
+            margin: 0px auto;
+        }
+        ul>li{
+            float: left;
+            width: 176px;
+            height: 176px;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <h1>node 제어</h1>
+    <ul>
+        <li><img src="imgs/sm01.jpg"/></li>
+        <li><img src="imgs/sm02.jpg"/></li>
+        <li><img src="imgs/sm03.jpg"/></li>
+        <li><img src="imgs/sm04.jpg"/></li>
+        <li><img src="imgs/sm05.jpg"/></li>
+        <li><img src="imgs/sm06.jpg"/></li>
+        
+    </ul>
+</body>
+<script type="text/javascript">
+       /* document.childNodes[0]; 
+        document.childNodes[1].childNodes;
+        document.childNodes[1].childNodes[2].childNodes[3];
+        document.childNodes[1].childNodes[2].childNodes[3].childNodes;
+        var p=document.childNodes[1].childNodes[2].childNodes[3];
+        p;
+        var old=p.childNodes[0];
+        p.removeChild(old);
+        var msg=document.createTextNode('바꿨습니다');
+        p.appendChild(msg);
+        */
+        //v8엔진이 처리하는 엔진이랑 html이 처리하는 엔진이 서로 다르고, 현재꺼가 (문서가 로딩되지 않았는데) 컴파일 속도가 빠르기 때문에 못잡는것임. 그래서 이처럼 바디 아래로 처래해야함. 절대 좋은 패턴이 아님! 나중에 배움
+        
+       
+        //첫번째꺼를 뒤에다 끼운것. 연속으로 끼워도 변하지 않음. li1을 다시 잡고 어펜드해야 달라짐.
+        var ul=document.children[0].children[1].children[1];
+        function next(){
+            
+            var li1=document.children[0].children[1].children[1].children[0];
+             ul.appendChild(li1);
+        }
+        setInterval(next,300);
+    </script>
+
+</html>

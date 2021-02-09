@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        var a=1234;
+        a=window.parseInt('1234');
+       /* console.log(1);
+        window.setInterval(function(){
+            console.log(new Date())                   
+        },1000);
+        //콜백의 비동기효과로 1과 2가 출력후 나오는걸 알 수 있다
+        console.log(2);
+        var b=window.setInterval(function(){
+            console.log(new Date())                   
+        },1000); 
+        //콜백은 스레드에 별도로 담아서 실행하고, 콜백끼리 서로 겹치지 않는다
+        //그리고 어떤 스레드가 먼저 실행될지는 아무도 모른다. 콜백에 콜백이 계속 연속된다면 어떤 게 먼저 실행될지 모르므로 콜백헬이라고 함.
+        console.log(2);
+        window.clearInterval(b); //이렇게 하면 멈춘다!*/
+        /* var c=window.setTimeout(function(){
+            console.log(new Date());
+        },1000); */
+        //위의 경우는 계속 자원이 누적되기때문에 인터넷 성능이 매우 떨어짐. 
+        var callback=function(){
+            console.log(new Date());
+            window.setTimeout(callback,1000); //재귀함수
+        }
+        var c=window.setTimeout(callback,1000);
+        //자원이 반납되고 다시 새롭게 자원소모 적게 가능함. 자기는 사라지고 새로운 객체가 찍혀서 데이트찍히는것
+        window.clearTimeout(c);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

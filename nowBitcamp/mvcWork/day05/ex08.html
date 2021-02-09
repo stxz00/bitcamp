@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //BOM : 브라우저 객체 모델
+        //window객체, Window는 window 객체를 찍기 위한 모델
+        //window, screen, location, history, navigator(브라우저 정보),document
+        //DOM은 document이다. BOM도 document가 있지만 depts가 다름
+        //BOM은 문서를 제어함.(버튼이나 그런거 누르면 내용바뀐다던지)
+        //문서 자체를 바꾸는게 DOM
+        //reference에 DOM window에 있음
+       // window.alert("내용이 출력"); //알림창
+        //촌스럽게 얘 쓰지 말고 CSS UI로 그리기
+        //arlert는 일방정인 메세지.
+       // window.confirm("삭제하시겠습니까?")
+        //확인과 취소가 있음. 확인을 누르면 true가 나옴
+        //window.prompt("머라도 입력바람");
+        //입력창과 확인 취소, 아무것도 입력 안하면 null,입력하면 내용
+        //BOM window는 말 그대로 윈도우
+        /*var w=window.open("http://naver.com");//일단 팝업차단
+        w.close();*/
+        var w;
+        function myOpen(){ //open(url,name,size size안주면 옆태그)
+            w=window.open("http://naver.com",null,"width=200, height=200");
+        }
+        function myClose(){
+            w.close();
+        }
+        window.scrollTo(0,200); //절대기준 단위 픽셀
+        window.scrollBy(0,200); //상대기준: 현시점에서 기준
+        window.innerHeight; //현재 브라우저가 열려진 사이즈의 높이값
+        window.innerWidth; //현재 브라우저가 열려진 사이즈의 넓이값
+        window.history;
+        window.history.length; //히스토리가 적재된 정도
+        /*window.history.back();
+        window.history.forward();
+        window.history.go(-1); //go는 숫자만큼 이동
+        window.history.go(1);*/
+        window.location;
+        window.location.href; //디폴트는 자기 페이지 명세해줌. 많이 씀!
+       // window.location.href='http://naver.com'; // 해당 페이지로 이동
+        window.location.reload(); //새로고침 효과
+        window.location.replace('http://naver.com');
+        //href와 replace의 차이점은 href는 현시점에서 그냥 주소바에 타이핑 하고 들어감. replace는 이름 그대로 현시점의 주소의 기록을 naver.com으로 덮어버림. 그렇기 때문에 이동했을때 히스토리에 남지 않음 페이지의 기록을 남길것이냐 안할 것이냐
+        
+        window.navigator; //읽기 전용 속성은 스크립트를 구동 중인 애플리케이션에 대한 메서드와 속성을 가진 Navigator 객체의 참조를 반환합니다.
+        //네비게이터 정보를 보고 pc인지 핸폰, 다른기기로 접속했는지로 잘 확인할 수 있음.
+        window.navigator.appName; //브라우징: 크롬 익스플로러 등 이제 대부분이 넷스케이프를 사용함. 크로스브라우징 문제를 위해 확인해봐야할 사항이지만 그렇게 신경쓸 필요가 없어진 시대가 됨.
+        window.screen; //사용자 해상도
+        window; //그냥 윈도우만 찍으면 다 나옴.(크롬은 코드 일부 안나옴)
+    </script>
+</head>
+
+<body>
+    <!-- 사용자의 의지로 윈도우 객체를 허용했으므로 팝업차단x -->
+    <button onclick="myOpen();">open</button>
+    <button onclick="myClose();">close</button> 
+</body>
+
+</html>
