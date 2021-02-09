@@ -29,6 +29,7 @@
         console.log("---------------");
         Func01.prototype.kor=90;
         Func01.prototype.name="나";
+        // Func01.prototype이라는 빈 Object가 어딘가에 존재하고, Person 함수로부터 생성된 객체(a)들은 어딘가에 존재하는 Object에 들어있는 값을 모두 갖다쓸 수 있습니다.
         var a=new Func01("너"); //객체를 찍는 펑션은 대문자로 찍음
         console.log(a.name,a.kor); //메서드는 this가 객체인거.
         console.log(name);  
