@@ -8,10 +8,15 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @MapperScan(basePackages = {"com.bit.sts12.model"})
+@EnableTransactionManagement
 public class Sts12Application {
 
 	public static void main(String[] args) {
@@ -26,7 +31,25 @@ public class Sts12Application {
 	}
 	
 	@Bean
-	public SqlSessionTemplate sqlTemplate(SqlSessionFactory factory) {
+	public SqlSessionTemplate sqlSessionTemplate(
+									SqlSessionFactory factory) {
 		return new SqlSessionTemplate(factory);
 	}
+	
+	@Bean
+	public TransactionManager transactionManager(DataSource dataSource) {
+		DataSourceTransactionManager tx=null;
+		tx= new DataSourceTransactionManager(dataSource);
+		return tx;
+	}
 }
+
+
+
+
+
+
+
+
+
+

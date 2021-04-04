@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bit.sts12.model.DeptDao;
 import com.bit.sts12.model.entity.DeptVo;
@@ -17,21 +19,29 @@ public class DeptServiceImpl implements DeptService {
 	SqlSessionTemplate template;
 	@Autowired
 	SqlSessionFactory factory;
-	String daoInfo=DeptDao.class.getTypeName();
 	
 	@Override
 	public List<DeptVo> list() {
-		return template.selectList(DeptDao.class.getTypeName()+"selectAll");
+		return template.selectList(
+				DeptDao.class.getTypeName()+".selectAll");
 	}
 	
 	@Override
 	public DeptVo bean(int deptno) {
-		return template.selectOne(DeptDao.class.getTypeName()+".selectOne");
+		return template.selectOne(
+				DeptDao.class.getTypeName()+".selectOne");
 	}
 	
 	@Override
+	@Transactional
 	public void add(DeptVo bean) {
-		template.insert(DeptDao.class.getTypeName()+".insertOne");
+		System.out.println("add service...");
+		template.insert(DeptDao.class.getTypeName()+".insertOne",bean);
+//		try(
+//			SqlSession session=factory.openSession();
+//		){
+//			session.getMapper(DeptDao.class).insertOne(bean);
+//		}
 	}
 	
 	@Override
