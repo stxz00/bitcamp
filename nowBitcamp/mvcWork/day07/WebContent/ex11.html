@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var bck,form;
+	window.onload=function(){
+		form=document.querySelector('form');
+		bck=document.querySelector('button[type="button"]');
+		bck.onclick=function(){
+			history.back();
+		};
+		form.onsubmit=function(){
+			
+			var deptno=document.querySelector('#deptno').value;
+			var dname=document.querySelector('#dname').value;
+			var loc=document.querySelector('#loc').value;
+			console.log(deptno,dname,loc);
+						console.log('ajax');
+						xhr=new XMLHttpRequest();
+						xhr.onreadystatechange=function(){
+							if(xhr.readyState==4) location.href='ex10.html';
+							//콜백은 나머지가 다 수행할때 처리된다는 것이므로 성립이 됨.
+							//응답을 했다는 것은 끝났다는 것
+							//성공하든 실패하든 응답만 하면 된다면 지금처럼 4일때만 하면 됨.
+							//즉 insert가 다 끝났다는 보장이 됨.
+						};
+						xhr.open('get','ex12.jsp?deptno='+deptno+'&dname='+dname+'&loc='+loc,true);
+						//디폴트는 false. 이는 페이지 계속 사용가능.
+						//true(동기화 통신,우리가 생각하는 그게 아님) 여기서 동기화는 통신과정상 홀딩. 
+						//완료되는 동안 페이지가 멈춰있는 것. 즉 결재같은 것.
+						//비동기 여부는 true이면 비동기적으로, false면 동기적으로 호출을 하여, 
+						//response가 올때까지 xhr.send()에서 브라우저는 대기하고 있을 것이다.
+						xhr.send();
+						return false;
+						
+			
+			//콜백함수(통신상황에 따라서 상태가 바뀔때마다 함수가 자동 실행)가
+			//없어도 되는건 그냥 결과를 받아와서 해당 페이지 바꿀려고 하는 것일뿐.
+			//센드해주기 위한 정보를 심어주는 게 오픈. 콜백은 xml의 상태가 바뀔때마다
+			//실행하므로. 우리가 보는 화면밖의 브라우저에서 통신하고 갱신하고 있는 것.
+			//그 페이지가 정상 로딩 갱신 되면 그 페이지의 일부만 받아다가 지금 보고있는
+			//페이지를 갱신시키려는 것. 
+			//화면에 있는 브라우저를 리스트페이지로 가기만 하면 됨.
+			//즉, 동기화 통신은 브라우저를 주소값마다 화면에 띄우면서 처리하고
+			//비동기 통신은 우리가 보이지 않는 브라우저에서 주소값을 처리하고 있음
+			//이렇게 통신을 하고 있음
+			//입력을 할때도 주소표시줄에다가 값을 실어 보내면 일을 하는데
+			//흰 화면에도 4이고 200이므로 insert 완료되었고 우리가 보는 화면엔 변동없음
+			//일 다 끝내면 다시 리스트로 돌아가면 됨. 
+			//리스트페이지가 돌아가기 전에 inset가 되어야지 갱신된 리스트를 봐야함.
+			//돌아가는 것보다 insert가 늦게 처리될 수 있으므로 보장을 못받음.
+			//그러므로 내가 인위적으로 값을 집어 넣어버리면 됨.(입력한 정보가 있으므로)
+			//다른 사람들은 데이타베이스에 있는 값을 불러올테니 문제가 없음.(웹하이브리드방식)
+			//이 때 콜백을 다시 호출하는 방법도 있고, 상태에 따라 변하는 onreadystatechange(콜백)의 특성을
+			//이용한다
+		};
+	};
+</script>
+</head>
+<body>
+	<h1>입력 페이지</h1>
+	<form action="ex12.jsp">
+		<div>
+			<label for="deptno">deptno</label>
+			<input type="text" id="deptno" name="deptno"/>
+		</div>
+		<div>
+			<label for="dname">dname</label>
+			<input type="text" id="dname" name="dname"/>
+		</div>
+		<div>
+			<label for="loc">loc</label>
+			<input type="text" id="loc" name="loc"/>
+		</div>
+		<div>
+			<button type="submit">입 력</button>
+			<button type="reset">취 소</button>
+			<button type="button">뒤 로</button>
+		</div>
+	</form>
+</body>
+</html>

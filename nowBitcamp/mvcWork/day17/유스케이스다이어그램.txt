@@ -1,0 +1,7 @@
+https://www.hanbit.co.kr/network/category/category_view.html?cms_code=CMS8900361225
+
+액터 : 입출력을 행하는 주체
+
+유스케이스 : 행위(입출력을 하는)  내용을 장황하게 적지 않음(상세하게 적지 말기)
+
+http://www.jidum.com/jidums/view.do?jidumId=976

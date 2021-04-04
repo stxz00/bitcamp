@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+//           $('button').click(function(){ //돔레벨2의 형태
+//              console.log('버튼 클릭'); 
+//           });
+//            $('a').on('click',function(){
+//               alert('버튼 클릭'); 
+//                return false;
+//            });
+            var callback=function(){
+                alert('버튼 클릭');
+                return false;
+            };
+            $('a').on('click',callback); //돔레벨3의 형태. 이벤트를 뺄 수 있음(off)
+            //$('a').off('click',callback);
+            $('a').on('mouseout',callback);
+            $('button').one('click',callback); //한번만 수행함
+        });
+    </script>
+</head>
+
+<body>
+    <h1>이벤트</h1>
+    <input type="text"/><button>입력</button>
+    <a href="ex08.html">back</a>
+</body>
+</html>

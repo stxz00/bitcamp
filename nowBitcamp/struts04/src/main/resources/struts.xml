@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="default" extends="sturts-dafault">
+		<action name="index" class="com.bit.i2.action.IndexAction">
+			<result>/ex02.jsp</result>
+		</action>
+		<action name="ex01" class="com.bit.i2.action.Ex01Action">
+			<interceptor-ref name="Preparable"/>
+			<interceptor-ref name="ModelDriven"/>
+			<interceptor-ref name="params"/>
+			<result>/result.jsp</result>
+		</action>
+		<action name="ex04" class="com.bit.i2.action.Ex04Action">
+			<result>/ex03.jsp</result>
+		</action>
+		<action name="ex03" cla ss="com.bit.i2.action.Ex03ACtion">
+			<result>/result.jsp</result>
+		</action>
+	</package>
+</struts>

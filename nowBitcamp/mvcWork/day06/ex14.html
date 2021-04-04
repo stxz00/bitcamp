@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        button{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            
+        }
+    </style>
+    <script type="text/javascript">
+        var h1,btn,input,chbox,select;
+        
+        window.onload=function(){
+            h1=document.querySelector('h1');
+            input=document.querySelectorAll('input')[0];
+            chbox=document.querySelectorAll('input')[1];
+            select=document.querySelector('select');
+            btn=document.querySelector('button');
+            inpt=
+/*          document.onmousemove=function(e){
+              console.log(e); //콘솔활용 잘하기!
+              //클릭은 clientx, clienty 좌표도 얻고 다양함. 스크린,레이어,오프셋 기준 등
+              btn.style.left=e.clientX-10+'px';
+              btn.style.top=e.clientY-10+'px';
+            };*/
+            input.onchange=function(e){ //타이핑이 바뀌었을때만 이벤트 발생(상태변화가 있는 엘리먼트)
+                console.log(input.value);
+            }
+            chbox.onchange=function(e){ //타이핑이 바뀌었을때만 이벤트 발생(상태변화가 있는 엘리먼트)
+                console.log(chbox.value);
+            }
+            select.onchange=function(e){
+                console.log(select.value);
+            }
+            input.onfocus=function(){
+                if(input.value=='입력하세요')
+                    input.value='';
+            }
+            input.onblur=function(){
+                if(input.value==''){
+                    input.value="입력하세요";
+                }
+            }
+            h1.ondrag=function(){
+                console.log('복사금지');
+            }
+            
+            
+        };
+    </script>    
+</head>
+
+<body>
+    <h1>그밖에 이벤트</h1>
+    <div>
+        <input type="text" value="입력하세요"/>
+        <input type="checkbox"/>
+        <select>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+        </select>
+        <button>btn</button>
+    </div>
+</body>
+
+</html>

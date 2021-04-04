@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="dept">
+  
+  	<select id="selectAll" parameterType="string" resultType="deptVo">
+  		select * from dept 
+  		<if test="value != null">
+  		where loc like #{value} 
+  		</if>
+  		order by deptno
+  	</select>
+  	<select id="selectAll2" resultType="deptVo">
+  		select * from dept where deptno in
+  		<foreach collection="list" index="index" item="val" open="(" close=")" separator=",">
+  			#{val}
+  		</foreach>
+  	</select>
+  	<select id="selectOne" parameterType="_int" resultType="deptVo" >
+  		select * from dept where deptno=#{value}
+  	</select>
+  	<insert id="insertOne" parameterType="deptVo">
+  		insert into dept values (#{deptno},#{dname},#{loc})
+  	</insert>
+  	<delete id="deleteOne" parameterType="_int">
+  		delete from dept where deptno=#{value}
+  	</delete>
+  	<update id="updateOne" parameterType="deptVo">
+  		update dept set dname=#{dname},loc=#{loc} where deptno=#{deptno}
+  	</update>
+  </mapper>

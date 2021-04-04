@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//var url='https://www.weather.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108';
+			//var url='http://localhost:8080/day11/list.xml';
+			/* var url="ex04.jsonp"; */
+			/* $.get(url,function(data){
+				//xml파일은 애써 만들 축적된 정보리스트를 너무 쉽게 가져감
+				//그래서 라이센스 문제가 생김.
+				//2010년경 미국에서 동일-출처 정책이 발의됨(벌금).
+				//정보를 가져가면 자바스크립트를 처리하는 브라우저회사에게 
+				//책임 및 과징금을 부여하는 정책임. 그래서 부리나케 막음.
+				//서비스하는 측에서 허용하는 정보는 가능하도록 함
+				//동일한 프로젝트 기준으로 허용하는 것이 아님 타 프로젝트도
+				//가능. 즉, 도메인(id(로컬호스트 등),포트번호)를 보고 허용범위를 줌.
+				//다른 서버라도 id와 포트번호가 같으면 가능. 
+				//같은 서버라도 id와 포트번호가 다르면 안됨.
+				//└동일-출처 정책
+				//JSONP가 있고 이걸 서비스한다면 가능
+				//즉 백엔드에서는 가능함
+				//console.log(data);
+			}); */
+			$.ajax({
+				url:'ex04.jsonp'
+				,dataType:'jsonp' //get방식밖에 안됨
+				,success:function(data){
+					console.log(data); 
+					//데이타를 보낸적이 없는데 겟파라미터로 콜백을 받음
+					//랜덤하게 콜백을 랜덤하게 만듬
+					//이렇게 얼마든지 파싱 가능하지만
+					//서비스 패턴이 com.bit.JsonpService처럼 되야함
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>날씨 정보</h1>
+	<div></div>
+</body>
+</html>

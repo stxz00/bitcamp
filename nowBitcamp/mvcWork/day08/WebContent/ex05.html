@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //jQuery==$;
+        /* jQuery(선택자).메서드() */
+        var h1=jQuery('h1'); //jQuery객체를 전달
+        //onload상태에서 잡지 않아도 가능
+        window.onload=function(){
+            //jQuery('h1').css('color','red');
+            //h1.css('color','red');
+            //$(document.querySelector('h1')) 도 가능
+            //$('li').css('color','red'); //한꺼번에 처리 가능
+            //$('h1,p').css('color','red');
+            //$('li:first').css('color','red'); 
+            //first-child, lastchild 축약도 가능
+            //$('li:eq(3)').css('color','red'); //원하는 것에만 주는것도 가능 equal
+            //$('li:lt(3)').css('color','red'); //4번째보다 작은것 
+            //$('li:gt(3)').css('color','red'); //4번째보다 큰
+            //이건 없음$('li:eqgt(3)').css('color','red);이건 없음
+            //$('li:odd').css('color','red);//홀수
+            //$('li:even').css('color','red);//짝수
+            //$('input[type="text"]');
+            //$('[type="text"]');
+            //$(':text');
+            //$(':radio');
+            //$(':button');
+            //$('input[type!="text"]').css('color','red');
+            //$('input[type^="text"]').css('color','red');
+            //$(function(){ var arr=['p','li']; return arr;});
+            //$(function(){alert('test')}); 바로 알림실행
+            /* var arr=document.querySelectorAll('li');
+            $(arr).css('color','red'); 배열도 가능*/
+            //$('h1').next().next().prev();
+            //$('ul').children().first().next();
+            //$('ul').children().last();
+            //$('ul').children().last().parent(); <- ul
+            //$('ul').prevAll(); //이전의 모든것:p,h1
+            //$('p').nextAll(); //다음에 오는 모든것:ul,form
+            //$(':text').parents(); div, form, body, html
+            //$('p').siblings(); //자기를 제외한 형제들
+            //$(document).find('p');
+            //$('form').find(':text'); //자손중에 찾는 용도
+            //$('li').filter('.cl'); //li로 잡은 것들중에 찾는 것! 위의 find는 자손을 찾는 것!
+            //$('li').filter(':first');
+            //$('li').eq(0); //위랑 같음
+            //$('li').odd(); 현재 버그임.
+            //$('li').filter(':even()');
+        };
+    </script>
+</head>
+
+<body>
+    <h1>jQuery</h1>
+    <p>첫번째는 엘리먼트 선택자</p>
+    <ul>
+        <li>item1</li>
+        <li id="it2">item2</li>
+        <li>item3</li>
+        <li class="cl1">item4</li>
+        <li>item5</li>
+        <li class="cl1">item6</li>
+    </ul>
+    <form>
+        <div>
+            <label></label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label></label>
+            <input type="password"/>
+        </div>
+        <div>
+            <input type="radio" name="ra"/>
+            <label>ra1</label>
+            <input type="radio" name="ra"/>
+            <label>ra2</label>
+        </div>
+        <div>
+            <input type="submit" value="submit"/>
+            <input type="reset" value="reset"/>
+            <input type="button" value="btn"/>
+        </div>
+        <div>
+            <button type="submit" value="submit"/>
+            <button type="reset" value="reset"/>
+            <button type="button" value="btn"/>
+        </div>
+    </form>
+</body>
+
+</html>

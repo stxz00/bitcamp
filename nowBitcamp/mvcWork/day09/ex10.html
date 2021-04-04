@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+           
+            $('h1').click(function(){
+                $('<button>btn</button>').appendTo('div');
+            });
+//            $('button').click(function(){
+//                alert('버튼클릭'); //레디상태에서 버튼 이벤트를 달았기 때문에 새로 만든 버튼은 이벤트가 적용되지 않음.
+//            });
+//            $(document).delegate('button','click',function(){
+//               alert('클릭'); 
+//            }); //이후에 만들 버튼도 동작함!1.4버전 (attach이벤트)
+            $(document).on('click','button',function(){
+                alert('클릭'); //위와 같은 동작! 순서차이 있음 지금은 이걸 사용 //bind도 on과 같음. 어떤걸 쓰든 무방
+            });
+            // $('button').eq(1).click(); 버튼 클릭실행.(trigger)
+            // $('button').eq(1).trigger('click'); //원래 원조
+        });
+    </script>
+</head>
+
+<body>
+    <h1>이벤트 attach</h1>
+    <div></div>
+    <button>old</button>
+</body>
+</html>

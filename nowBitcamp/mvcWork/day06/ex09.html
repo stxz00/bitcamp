@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var h1=document.querySelector('h1');
+            var btn=document.querySelector("button");
+            
+            /*h1.onclick=function(){
+                alert('버튼을 클릭함');
+            }
+            document.onclick=function(){ //문서
+                alert('버튼을 클릭함');
+            }*/
+           /* var body=document.querySelector('body'); //바디사이즈까지 적용
+            body.onclick=function(){ 
+                alert('버튼을 클릭함');
+            } */
+            
+            //아래 h1 등등도 적용됨.
+            btn.onclick=function(){
+                //alert('버튼을 클릭함');
+                console.log('클릭');
+            };
+            btn.onmousedown=function(){ //마우스로 누를때
+                console.log('mousedown');
+            };
+            btn.onmouseup=function(){ //마우스로 눌렀다 뗄때
+                console.log('mouseup');
+            };
+            btn.onmouseover=function(){
+                console.log('mouseover');
+            };
+            btn.onmouseout=function(){
+                console.log('mouseout');
+            };
+            btn.ondblclick=function(){ //더블클릭
+                console.log('dblclick');
+            };
+            
+        }
+    </script>
+</head>
+
+<body>
+    <h1>마우스 이벤트</h1>
+    <button>btn</button>
+</body>
+
+</html>

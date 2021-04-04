@@ -1,0 +1,18 @@
+1. 파일업로드 다운로드 sts07
+2. 웹소켓 sts08
+3. xml -> javaConfig sts09 web.xml을 삭제함
+
+플러그인에 
+  <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-war-plugin</artifactId>
+			    <version>2.2</version>
+			    <configuration>
+			    	<failOnMissingWebXml>false</failOnMissingWebXml>
+			    </configuration>
+			</plugin>
+servletConfig도 삭제
+
+4. 비동기통신(front-end & back-end)
+5. boot

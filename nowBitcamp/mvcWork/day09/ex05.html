@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js">
+    </script>
+    <script type="text/javascript">
+        window.onload=function(){
+            console.log('onload01');
+        };
+        window.onload=function(){
+            console.log('onload02'); //펑션을 덮어씀. onload02만 출력
+        };
+        //즉, jQuery는 DOM level3 이다. 온로드,레디 가능!
+        $(window).load(function() {
+            console.log('load',$('h1').text());
+            //$('div').load('ex01.html'); //h1내용 로드
+            //아래는 document.addEvenListener('load',function)(){};
+            $(document).on('ready', function() {
+                console.log('callback',$('h1').text());
+            });
+        });
+        //load는 이벤트와 통신의 load가 있음. 맨위는 이벤트로드고
+        //윈도우 아래의 것은 통신 load임
+        $(document).ready(function() {
+            console.log('ready',$('h1').text());//load보다 ready가 먼저 출력됨
+            //load와 레디의 시점이 다름 load는 문서가 완성될 때 하는 것이고, ready는 준비시점에 출력
+            //화면에 뿌려진 상태에서 하는 게 load 뿌리기 전 준비된 시점에 하는 게 ready
+            //h1이 다 뿌려질때까지 기다리기 전에 존재만 하면 된다면 ready를 쓰고 다 로드가 끝난 시점에 하고 싶을 때 load를 사용
+            //사용자는 화면에 잠깐 깨진 상태를 보고 css 등이 출력되면 보기 그러니 ready를 씀
+            //자바스크립트보다 살짝 느린게 jQuery이므로 살짝 깨지는 게 보여질 수 있긴 함.
+            //중요: 위는 뿌려진 상태니까 윈도우(화면)에다 load를 쓰고 ready는 문서를 준비 중일때 쓰는 것이니 document에 쓰는거
+        });
+        $(document).ready(function(){
+            console.log('ready2'); //반드시 순서가 이대로 나오는 것은 아님
+        });
+        
+        $(window).unload(function(){
+            console.log('unload',$('h1').text()); //다른 브라우저 보고있을때
+        });
+        $(window).resize(function(){
+            console.log('resize',$('h1').text()); //브라우저 크기 바꾸는 순간마다
+        });
+        $(function(){
+           console.log('callback',$('h1').text()); 
+            //ready때 실행함!
+        });
+        $(document).ready(function(){
+            console.log('ready3');
+        });
+        
+    </script>
+</head>
+
+<body>
+    <h1>jQuery 이벤트</h1>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	Value	State	Description
+	0	open()전 통신준비상태 /UNSENT	Client has been created. open() not called yet.
+	1	open()했을때 /OPENED	open() has been called.
+	2	send()했을때 /HEADERS_RECEIVED	send() has been called, and headers and status are available.
+	3	응답중인 상태 /LOADING	Downloading; responseText holds partial data.
+	4	응답완료 후 통신이 끝난 상태 /DONE	The operation is complete.
+	*/
+	var target,xhr;
+	window.onload=function(){
+		target=document.querySelector('#target');
+		xhr=new XMLHttpRequest(); 
+		//중요 웹 페이지가 사용자가 하고 있는 것을 방해하지 않으면서 페이지의 일부를 업데이트할 수 있도록 해줍니다. 
+		xhr.onreadystatechange=function(e){ //레디 상태가 바뀔때마다 자동으로 바뀌는 콜백함수. 요청전,요청,요청후 등 상태의 종류
+			//console.log(xhr.responseText); 
+			//console.log(xhr.status);
+			//성공하면 200 실패하면 404
+			//console.log("비동기통신",xhr.responseText);
+			//console.log(xhr.readyState==4);
+			// 3일때는 아직 응답중인 상태이므로 데이터가 완벽하지 않음
+			if(xhr.readyState==4){
+				console.log(e);
+				if(xhr.status==200){
+					var msg=xhr.responseText;
+					target.innerHTML=msg;
+				}
+			}else{ //0,1,2,3까지는 아직 안불러왔으므로 파싱오류
+				alert("파싱오류");
+			}
+		};
+		xhr.open('post','ex02.html'); //get방식으로 ex02로 이동
+		//post방식도 가능
+		xhr.send(); //요청을 만들어 open을 만들고 보내면 ex02와 통신이 됨
+	}
+</script>
+</head>
+<body>
+	<h1>비동기통신</h1>
+	<div id="target"></div>
+	<p>상단의 내용은 ex02.html의 내용입니다</p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style rel="stylesheet" type="text/css">
+	iframe {
+		width:100%;
+		height: 500px;
+	}
+	
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	//var msg='';
+	var successCallback=function (data){
+			console.log($(data).find('student'));
+			$(data).find('student').each(function(idx,ele){
+				var stu=$(ele);
+				console.log(stu.children());
+				$('table').append(
+				$('<tr/>')
+				.append($('<td/>').text(stu.find('num').html()))
+				.append($('<td/>').text(stu.find('name').html()))
+				.append($('<td/>').text(stu.find('kor').html()))
+				.append($('<td/>').text(stu.find('eng').html()))
+				.append($('<td/>').text(stu.find('math').html()))
+				);
+			}); 
+	}
+	$(document).ready(function(){
+		//$('#target').load('ex06.html');
+		$.ajax({//자바스크립트 통신은 ajax:비동기 통신임. 아래것도 이것임
+			url:'stu.xml',
+			type:'post',
+			success:successCallback,
+			error:function(xhr,status,err){
+				console.log(xhr,status,err);}
+		}); 
+		
+		//$('h1'); //로드한 것에 있는 것까지 잡을 수 있음! 그래서 원하는대로 가공할 수 있음
+		//아래 get과 post는 성공했을때 콜백함!
+		//$.get('stu.xml',function(data){ //get방식으로 호출
+		/* $.post('stu.xml',function(data){ //post방식으로 호출
+			//alert('성공...');
+			console.log($(data).find('student'));
+			$(data).find('student').each(function(idx,ele){
+				var stu=$(ele);
+				console.log(stu.children());
+				//msg+='<tr>';
+				$('table').append(
+				$('<tr/>')
+				.append($('<td/>').text(stu.find('num').html()))
+				.append($('<td/>').text(stu.find('name').html()))
+				.append($('<td/>').text(stu.find('kor').html()))
+				.append($('<td/>').text(stu.find('eng').html()))
+				.append($('<td/>').text(stu.find('math').html()))
+				);
+			}); 
+			//$('table').append(msg);
+		});	*/
+	});
+</script>
+</head>
+<body>
+	<h1>jQuery 통신</h1>
+	<table>
+		<tr>
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+	</table>
+</body>
+</html>

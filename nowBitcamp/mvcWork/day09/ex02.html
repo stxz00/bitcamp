@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style rel="stylesheet" type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid gray;
+/*            box-sizing: border-box;  마진,패딩을 안쪽 값으로 주는 것 그래서 순수 width값이 88이됨 */
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $('div').height(); //div 순수 일반 값
+        $('div').outerHeight(); //마진 패딩등 포함 값!
+        $('div').innerHeight(); //보더값을 뺀 값
+        
+    </script>
+    <title> Title </title>
+</head>
+
+<body>
+    <div>box</div>
+</body>
+</html>

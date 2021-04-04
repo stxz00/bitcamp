@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        window.onload=function(){
+            ul=document.querySelector("ul");
+            ul.before(document.createElement('input'));
+            div=document.querySelector("input");
+            input=document.querySelector("input");
+            //input.type="text";
+            input.setAttribute("type","text");
+            input.after(document.createElement("button"));
+            button=document.querySelector("button");
+            button.innerHTML="add";
+            button.onclick=function(){
+                ul.innerHTML=ul.innerHTML+"<li>"+input.value+"</li>";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>element 제어</h1>
+    <ul>
+       <li>item1</li> 
+       <li>item2</li> 
+       <li>item3</li> 
+       <li>item4</li> 
+    </ul>
+</body>
+
+</html>

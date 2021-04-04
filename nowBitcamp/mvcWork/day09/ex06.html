@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        div{
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $('button').eq(0).click(function(){
+              console.log('첫번째 버튼 클릭'); 
+           });
+           $('button').eq(1).mousedown(function(){
+               console.log('mousedown');
+            }).mouseup(function(){
+               console.log('mouseup');
+           });
+            $('button').eq(2).mouseover(function(){
+                console.log('mouseover');
+            }).mouseout(function(){
+                console.log('mouseout');
+            });
+            $('button').eq(3).mouseenter(function(){
+                console.log('mouseenter');
+            }).mouseleave(function(){
+                console.log('mouseleave');
+            });
+            //엔터와 리브, 오버와 아웃은 전파차이
+            $('div').mouseover(function(){
+                console.log('div mouseover');
+            }).mouseout(function(){
+                console.log('div mouseout');
+            }).mouseenter(function(){
+                console.log('div mouseenter');
+            }).mouseleave(function(){
+                console.log('div mouseleave');
+            });
+            //메뉴같이 부모의 자식이 동일한 이벤트가 있을 때 엔터와 리브를 쓰면 버튼같은 것에 올라갔을 때 메뉴가 빠지고 들어가는 게 반복되지 않음! 그리고 버튼에 올라갔을 때 전파를 막는 것임
+           $('button').eq(4).dblclick(function(){
+              console.log('dbclick',this); 
+           });
+            $('div').mousemove(function(e){
+              console.log('move',e.pageX,e.pageY); 
+           });
+            
+        });
+    </script>
+</head>
+
+<body>
+    <h1>마우스 이벤트</h1>
+    <div>
+        <button>btn1</button>
+        <button>btn2</button>
+        <button>btn3</button>
+        <button>btn4</button>
+        <button>btn5</button>
+    </div>
+</body>
+</html>

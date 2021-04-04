@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//getJSON은 확장자가 어떤 것이냐 상관없이 JSON문법으로 인식함
+			//그냥 get으로 하면 html을 문자열로 받지만 
+			//getJSON은 통신과 상관없이 강제로 JSON오브젝트로 받음
+			//네트워크 가서 contentype은 그대로인데 강제로 인식하는 것
+			$.ajax({
+				url:'ex01.html'
+				,type:'get'
+				,data:{id:'root',pw:'4321'} //'id=admin&pw=1234'
+				,dataType:"json" //getJSON과 같음
+				,success:function(data){
+					console.log('ajax',typeof data);
+					console.log('ajax',data);
+				}
+			});
+			//postJSON은 없으니 ajax로 하면 됨
+			$.getJSON('ex01.html',function(data){
+				/* data.root.forEach(function(ele,idx){
+					console.log(ele,idx);
+				}); */
+				$(data.root).each(function(idx,ele){
+					//console.log(idx,ele);
+					var tr=$('<tr/>');
+					$('<td/>').text(ele.key1).appendTo(tr);
+					$('<td/>').text(ele.key2).appendTo(tr);
+					$('<td/>').text(ele.key3).appendTo(tr);
+					$('<td/>').text(ele.key4).appendTo(tr);
+					$('table').append(tr);
+				//다 보여주는 text가 아닌 html로 하면 false와 null은 안보임 
+					//$.param() <- 오브젝트를 문자열로 만들어줌
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>json pasing</h1>
+	<table></table>
+</body>
+</html>

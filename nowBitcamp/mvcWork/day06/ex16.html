@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        function btnEv(){
+            alert(this.innerText);
+        }
+        var btns;
+        window.onload=function(){
+            btns=document.querySelectorAll('button');
+            btns[0].onclick=btnEv; //하나의 콜백함수로 this키워드 잘 사용한 예
+            btns[0].onclick=function(){
+                console.log(this.innerText);
+            }
+            //btns[0].onmouseover=btnEv;
+            btns[1].onclick=function(){
+                console.log('level2');
+            };
+            btns[1].addEventListener('click',btnEv);
+            /*btns[1].addEventListener('click',function(){
+                console.log(this.innerText);
+            });*/
+            btns[1].removeEventListener('click',btnEv);
+            // level2는 똑같은 이벤트면 덮어써지지만(재정의) level3는 이벤트리스너는 수행될 함수가 다중으로 실행됨(재정의가 아닌 적재된 이벤트들이 같이 수행). 서로 이벤트 자체가 다른것임. level2 하나 추가해도 됨.
+        };
+    
+    </script>
+</head>
+
+<body>
+    <button>btn1</button>
+    <button>btn2</button>
+    <button onclick="btnEv();">btn3</button> <!-- level1 -->
+</body>
+
+</html>

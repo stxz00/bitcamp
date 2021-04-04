@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student>
+		<num>1</num>
+		<name>홍길동</name>
+		<kor>90</kor>
+		<eng>91</eng>
+		<math>93</math>
+	</student>
+	<student>
+		<num>2</num>
+		<name>박길동</name>
+		<kor>70</kor>
+		<eng>71</eng>
+		<math>73</math>
+	</student>
+	<student>
+		<num>3</num>
+		<name>김길동</name>
+		<kor>69</kor>
+		<eng>87</eng>
+		<math>73</math>
+	</student>
+</students>
+<!-- 
+	최상위 엘리먼트(root element)는 단 하나만의 이름만 가능함
+	그 아래 엘리먼트는 같은 이름 가능하고 속성을 가질 수 있음.
+	그 속성은 컬럼이고 하나의 속성에 레코드를 가질 수 있다.
+	1. 스키마가 정의되야함(맨 위) : 나는 xml이다라는
+	(맨위 개행도 있어선 안 됨, 스페이스바도 안 됨)
+	아래 예시.
+-->

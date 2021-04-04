@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        //alert("로딩..."+document.querySelector('h1').innerText); 오류
+        function func01(){
+            alert("로딩..."+document.querySelector('h1').innerText);
+        }
+        //<body onload="func01()"> 해당 로딩시점에 함수실행
+        window.onload=func01; //로딩이 완료되었을 때(화면에 표현되는 시점이 아님 이는 화면이 표기가 될 때인지 안되었을때 나올지 모름! 확실한 건 로딩이 완료되었다는 것!) 실행.
+        //레벨2 : 콜백펑션 레벨1은 인라인방식.
+        //body에 on하고 컨트롤쉬프트해서 나오는게 다 레벨1 이벤트 우리는 레벨2를 다룸
+        //window.onresize=func01; //브라우저 사이즈를 바꿀때 실행
+        //window.onbeforeunload;
+    </script>
+</head>
+
+<body>
+    <h1>이벤트</h1>
+    <img src="imgs/big01.jpg"/>
+    <script type="text/javascript">
+        //document.querySelector('img').onload=func01; //이미지가 존재할때 온로드가 실행.
+        document.querySelector('img').unload=func01; //언로드시점
+        
+    </script>
+</body>
+</html>

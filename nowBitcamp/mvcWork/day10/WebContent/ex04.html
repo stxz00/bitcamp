@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        div {
+            background-color: rgb(255, 0, 0);
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /* $('div').animate(
+                {  
+                    'marginLeft':'400px',
+                    'backgroundColor':'rgb(0,0,255)' //색이 부드럽게 바뀜
+                }
+                ,3000
+                ,function(){alert('end');}
+            ); */
+            var obj = {
+                duration: 1000,
+                easing: 'easeInBounce',
+                complete: function() {
+                    console.log('complete');
+                },
+                start: function() {
+                    console.log('start');
+                },
+                fail: function() {
+                    console.log('fail');
+                },
+                always: function() {
+                    console.log('always');
+                },
+                done: function() {
+                    console.log('done');
+                },
+                progress: function(a, b, c) {
+                    console.log('progress', a, b, c);
+                }
+                //progress: 진행하는 동안 계속 호출 게이지 같은거에 씀
+                //a는 this, b는 진행현황, c는 남은 현황
+            };
+            $('div')
+                .animate({
+                    'marginLeft': '400'
+                }, obj, 3000) //애니메이트만 픽셀안해도됨
+                .delay(3000) //말 그대로 딜레이
+                .animate({
+                    'marginTop': '400px'
+                }, 2000)
+                .animate({
+                    'marginLeft': '0px'
+                }, 2000)
+                .animate({
+                    'marginTop': '0px'
+                }, 2000);
+            $('div')
+                .animate({
+                    'marginLeft': '400px',
+                    'marginTop': '400px'
+                })
+                .animate({
+                    'marginLeft': '0px',
+                    'marginTop': '0px'
+                });
+            //$('div').stop(); //해당 진행중인 애니메이션을 중단함. 그래서 다 멈출려면 모든 애니메이션마다 .stop() 해야함
+            //$('div').queue().length; 현재 남은 애니메이션들 배열
+            //.dequeue()는 앞뒤. 즉 현재 실행중인 것과 다음에 오는 애니메이션을 병행하여 실행(곡선이 됨)
+            $('button:first').click(function(){
+                for(var i=0; i<$('div').queue().length; i++){
+                    $('div').stop();
+                }
+            });
+            $('button:first').next().click(function(){
+                $('div').dequeue();
+            });
+            $('button:first').next().next().click(function(){
+                $('div').finish(); //스킵,아예 최종으로 가버리는 것
+            }); 
+            $('button:first').next().next().next().click(function(){
+                $('div').clearQueue(); //현재 진행하고 있는 애니메이션만 진행하고 남은 애니메이션 지움.
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>stop</button>
+    <button>dequeue</button>
+    <button>finish(스킵)</button>
+    <button>clearQueue</button>
+    <div>box</div>
+</body>
+
+</html>

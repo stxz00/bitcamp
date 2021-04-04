@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <!--<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />-->
+    <style type="text/css">
+    	body>div{
+    		margin: 0px auto;
+    		padding :0px;
+    	}
+    	#header{
+    	}
+    	#header>h1{
+    		background-image: url("imgs/logo.png");
+    		background-repeat: no-repeat;
+    		text-indent: -999px;
+    		
+    	}
+    	#menu{
+    		overflow: hidden;
+    		background-color: gray;
+    	}
+    	#menu>ul{
+    		padding: 0px;
+    		width: 440px;
+    		list-style: none;
+    		margin: 0px auto;
+    	}
+    	#menu>ul>li{
+    		width: 100px;
+    		float: left;
+    		border-top: 2px solid darkgray;
+    		border-bottom: 2px solid white;
+    		margin: 0px 5px;
+    	}
+    	#menu>ul>li>a{
+    		display: block;
+    		height: 30px;
+    		line-height: 30px;
+    		text-align: center;
+    		text-decoration: none;
+    		color: white;
+    	}
+    	
+    	.bx-controls{
+    		display: none;
+    	}
+    	
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js">
+    </script>
+    <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+    //서블릿은 1.0시대 2.0부터 프론트엔드jsp(jsp에서는 보안 포기)시작 3점대부터 2.0대 병행 
+    //ModelViewController(mvc):데이터베이스가 관여하는 모델 프리즌테이션 뷰를 제어하는게 컨트롤러 mvc는 모델1 모델2로 나뉨. 모델2가 아니면 전부 모델1. 가장 완성적인게 모델2. 지금까지 우리가 했던게 모델1. 모델1은 서로의 영역이 침범되면 문제가 있음. 그러나 모델2는 영역이 확실하여 문제없음. 서로 각각 모듈화 하면 필요하면 재사용이 가능함. 웹사이트 페이지 하나당 모델 뷰 컨트롤러 이렇게 3개를 만들어야함. 단위 프로젝트가 커졌다고 할때 모델2사용을 생각. jsp는 뷰. 1이냐 0이냐는 모델에서 하고 뷰는 보여지는 것만. 그래서 jsp는 결국 디자인적인것만 남게됨. 이래서 프론트엔드쪽에서는 좋음.
+        $(function(){ //$(document).ready(function(){});
+            //https://bxslider.com/options/ 옵션스에 제어가 여러가지있음
+            $('.bxslider').bxSlider({
+                minSlides:2, //화면 줄였을때 최소 몇장
+                maxSlides:3,   
+                slideWidth:320,  //넓이까지 줘야 작동
+//                mode:'horizontal', //fade는 min과 max가 적용x
+                moveSlides:1,
+//                speed:3000,
+//                slideMargin:5,
+//                captions:true,
+//                pager : true,
+//                //pagerType:'short',
+//                pagerShortSeparator:'/',
+//                //pagerSelector:'body>div+div',
+//                nextText:'다음',
+//                prevTrex:'이전',
+                auto:true,
+                autoControls: true,
+                //콜백함수들은 애니메이션과 같음
+                //load(슬라이드 로드된 시점)
+                //before->next(prev)->after
+                //각 엘리먼트들이 다른 게 아닌 시점임! 움직였을때 콜백실행
+                onSliderLoad: function(idx) {console.log('Load',idx);},
+                onSliderResize:function(idx){console.log('Resize',idx);},
+                onSlideBefore:function(ele,old,idx){console.log('Before',ele,old,idx);},
+                onSlideAfter:function(ele,old,idx){console.log('After',ele,old,idx);},
+                onSlideNext:function(ele,old,idx){console.log('Next',ele,old,idx);},
+                onSlidePrev:function(ele,old,idx){console.log('Prev',ele,old,idx);}
+                
+                
+            }).startAuto();
+        });
+    </script>
+</head>
+
+<body>
+	<div>
+		<div id="header">
+			<h1>비트교육센터</h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="./">Home</a></li>
+				<li><a href="./dept/list.html">DEPT</a></li>
+				<li><a href="/emp/list.html">EMP</a></li>
+				<li><a href="/login/login.html">LOGIN</a></li>
+			</ul>
+		</div>
+		<div id="content">
+			<div class="bxslider">
+		        <div><img src="imgs/big01.jpg" title="Funky roots"></div>
+		        <div><img src="imgs/big02.jpg" title="The long and winding road"></div>
+		        <div><img src="imgs/big03.jpg" title="Happy trees"></div>
+		        <div><img src="imgs/big04.jpg" title="Happy trees"></div>
+		        <div><img src="imgs/big05.jpg" title="Happy trees"></div>
+		        <div><img src="imgs/big06.jpg" title="Happy trees"></div>
+    		</div>
+		</div>
+		<div id="footer">
+			<p>Copyright &copy; 비트캠프 All rights reserved</p>
+		</div>
+	</div>
+    
+    <div>box</div>
+</body></html>

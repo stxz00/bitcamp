@@ -1,0 +1,6 @@
+https://ckeditor.com/ ck웹에디터 다운로드
+
+마리아db 최신버전 설치 3306 maria / heildiSQL자동 설치됨
+
+
+

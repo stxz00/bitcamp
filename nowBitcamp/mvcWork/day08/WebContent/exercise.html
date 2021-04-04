@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style type="text/css">
+        div{
+            width: 320px;
+            height: 320px;
+            margin: 0px auto;
+            padding: 0px;
+        }
+        div>li{
+            list-style: none;
+        }
+        div>li>img{
+            width: 320px;
+            height: 320px;
+        }
+        ul{
+            list-style: none;
+            margin: 0px auto;
+            width: 320px;
+            height: 80px;
+            overflow: hidden;
+            padding: 0px;
+        }
+        img{
+            float: left;
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            $('ul>li').first().appendTo('div');
+            carousel();
+        };
+        function carousel(){
+            $('div>li').appendTo('ul');
+            $('ul>li').first().appendTo('div');
+            setTimeout(carousel,1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li><img src="imgs/big01.jpg"/></li>
+        <li><img src="imgs/big02.jpg"/></li>
+        <li><img src="imgs/big03.jpg"/></li>
+        <li><img src="imgs/big04.jpg"/></li>
+        <li><img src="imgs/big05.jpg"/></li>
+        <li><img src="imgs/big06.jpg"/></li>
+    </ul>
+</body>
+</html>

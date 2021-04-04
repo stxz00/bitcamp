@@ -1,0 +1,20 @@
+class A{
+	B b=new B(); //의존관계 (밖에다 했으니 의존관계를 형성함)
+	public void func01(){
+		B b=new B(); //연관관계
+		b.func02(); 
+	}
+------------------------------------------------------	
+	B b;
+	public void setB(B b2){ //집합관계
+		b=b2;
+	}
+}
+
+
+class B{
+
+	public void func02(){
+	
+	}
+}

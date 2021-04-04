@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+    //        $('h2').html();
+    //        $('h2').text();
+    //        $('h2').text('text로 & 작성');
+    //        $('h2').html();
+    //        $('h2').parent().html();
+    //        $('h2').parent().text();
+    //        $('h2').parent().html('<h2>html()</h5>');
+    //        $('h2').parent().text('<h2>html()</h5>');
+    //        $('h1+div').html();
+    //        $('h1+div').text();
+    //        $('h3').append('<p>addappend</p>');  //<h3>안이니 문법오류 
+//            $('h3').parent().prepend('<p>add3append</p>');
+//            $('h4').parent().prepend('<p>add4append</p>');
+//            $('h3').parent().append('text01');
+//            $('h3').parent().append('text02');
+//            $('h3').parent().append('text03'); 텍스트노드
+//            document.querySelector('h3').parentElement.childNodes;
+            //$('add1').appendTo('h1+div+div'); 
+            //텍스트노드가 아닌 태그 지시자라고 인식했기 때문에 안들어감
+            $('<p>add1</p>').appendTo('h1+div+div'); 
+            //때문에 순수 태그가 틀어가면 엘리먼트를 만드는 것으로 하면 됨.
+            //$('<h2>추가생성된엘리먼트</h2>');
+            var h2=$('<h2/>').append('텍스트노드추가');
+            $('h1+div').append(h2);
+            //$('h1+div').text(h2); object
+            $('h4').after('<p>add3</p>'); 
+            $('h4').after('<p>add2</p>'); 
+            $('h4').after('<p>add1</p>'); //형제 노드 <h4>바로 앞에 추가하는 것
+            $('h4').before('<p>before1</p>');
+            $('h4').before('<p>before2</p>');
+            $('h4').before('<p>before3</p>');
+            $('h4').after('add1');
+            $('h4').after('add2');
+            $('h4').after('add3'); //텍스트노드
+            $('h4').next().text(); //텍스트노드로 들어가면 텍스트노드는 현재 div가 갖고 있는 것이므로 형제노드가 아님 때문에 안나옴.
+            $('<p>after1</p>').insertAfter('h4');
+            //앞을 지시자로 넣으면 갖다 붙여버림
+            //$('h2').insertAfter('h4');
+            //$('h2').insertBefore('h4');
+            $('h1+div').append(function(a,b){
+                console.log(a,b); return b;
+            });
+            $('h1').wrap('<div/>'); //h1을 <div></div>로 감쌈
+            $('h1').unwrap('<div/>'); //지움
+            //$('h1,h2,h3,h4').unwrap('<div/>');
+            //3.0때 만들어짐.
+            var h1=$('h1').clone();
+//            h1.html('edit');
+//            $('h4').after(h1);
+//            $('h1').empty(); //h1의 텍스트노드들이 비워짐
+//            $('h1+div').empty(); //본인만 남고 자식,자손들을 지움
+//            $('h1+div+div').remove(); //본인 포함 삭제 detach와는 메모리차이
+            // .replaceAll() 앞이 타겟 뒤가 바꿀대상
+            $('h1').css('height');
+            $('h1').height();
+            $('h1').css('width'); //브라우저의 넓이에 따라 달라짐(넓이 안준 이상)
+            $('h1').width();
+            $(document).width(); //현재 브라우저 창 넓이
+            $('body').height();
+            $(document).height();
+            window.scrollY='0px';
+            window.scrollBy(0,0); //상대적
+            window.scrollTo(0,0); //절대적
+            window.scrollTo(0,1000);
+            window.scrollTo(0,$(document).height()); //맨밑으로
+            $(document).scrollTop(); //현재 스크롤 좌표값
+            $(document).scrollTop(661); //로 이동
+           // $(document).scrollLeft(661); 
+            //.positon() 좌표값
+        };
+    </script>
+</head>
+
+<body>
+    <h1>dom 작성</h1>
+    <div>
+        <h2>HTML&amp;Text</h2>
+    </div>
+    <div>
+        <h3>append&amp;prepend</h3>
+    </div>
+    <div>
+        <h4>before&amp;after</h4>
+    </div>
+</body>
+
+</html>

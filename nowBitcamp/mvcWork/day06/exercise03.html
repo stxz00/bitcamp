@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        var div,img,num;
+        window.onload=function(){
+            div=document.querySelector('div');
+            num=0;
+            function next(){
+                num++;
+                if(num==7)num=1;
+                img="<img src=\"imgs/big0"+num+".jpg\"\>";
+                console.log(img);
+                div.innerHTML=img;
+                setTimeout(next,1000);
+            }
+            next();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>innerHTML&amp;innerText</h1>
+    <div></div>
+</body>
+
+</html>

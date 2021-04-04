@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        // Window는 윈도우를 만들어내고, Function은 펑션을 만드는 용도인데 안씀
+        // var win =Window() 가상 윈도우를 만든 것
+        var input;
+        var target;
+        var button;
+        var h1;
+        window.onload=function(){
+            input=document.querySelector('input');
+            target=document.querySelector('#target');
+            btn=document.querySelector('button');
+            h1=document.querySelector('h1');
+            //document
+            window.onkeydown=function(e){
+                console.log("keydown>",e);
+            };
+            window.onkeyup=function(e){
+                console.log("keyup>"+input.value);
+                target.innerText=input.value;
+            };
+            window.onkeypress=function(e){
+                console.log("keypress>"+input.value);
+            };
+            //keypress는 진짜 문자같은거 쓸 때 나옴 그래서 컨트롤키나 그런건 keydown과 keyup만 나옴
+            //press와 down은 그 이전 문자가 나옴
+            //포커스를 받을 수 없는(tab키로 해당 엘리먼트로 갈 수 없는) h1 등은 key에 관련된 것은 불가능하다
+            //단 document는 포커스를 받은 것이니(창이 활성화) 된다. window도 창이 활성화되면 된다
+            //이벤트 객체 e는 자바에서의 e처럼 e를 출력하면 해당 메서드에 대한 프로퍼티가 나온다.
+            //keyCode는 A의 경우를 보면 65인데 a도 65로 나옴(순수값). 이는 shiftkey가 true면 A 아니면 a로 구분해서 함!.
+            //그리고 keydown에서 input값을 받을 때는 그 이전 값들이 나왔는데 keydown에서는 내가 방금 친것들의 값들이 나옴. 
+        };
+    </script>
+</head>
+
+<body>
+    <h1>key event</h1>
+    <div>
+        <input/>
+        <button >btn</button>
+        
+    </div>
+    <div id="target"></div>
+</body>
+
+</html>

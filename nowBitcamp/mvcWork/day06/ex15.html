@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript">
+        var h1,input;
+        window.onload=function(){
+            h1=document.querySelector('h1');
+            input=document.querySelector('input');
+            h1.addEventListener('mouseout',function(){
+                console.log('H1 mouseout...');
+            });
+            input.addEventListener('keyup',function(){
+                console.log(input.value);
+            });
+        };
+        
+            
+        
+        //되도록 써달라고 하지만 써야할때와 안쓸때가 확연히 있음.
+        //level3는 on을 빼고 쓴다
+    </script>
+</head>
+
+<body>
+    <h1>DOM Level3 이벤트</h1> <!-- 지금까지는 다 Level2였다 -->
+    <input type="text"/>
+</body>
+
+</html>

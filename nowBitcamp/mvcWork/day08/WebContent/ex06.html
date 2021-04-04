@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        h1{
+            background-color: green;
+            animation-name: ani1;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;
+            
+        }
+        @keyframes ani1
+        {
+            0%{
+                width: 100px;
+            }
+            100%{
+                width: 500px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+            // 1.0.0~1.12.4
+            // 2.0.0~2.2.4
+            // 3.0.0~3.5~ 
+        window.onload=function(){
+            var h1=$('h1'); //아예 시점 기준으로 잡은 것. j쿼리는 잡은 시점에 따라 실시간임! $('h1').css('width');
+            $('h1').css('color','red');
+            console.log($('h1').css('background-color'));
+           //인자가 하나일때는 해당 엘리먼트의 속성값을 얻어내줌 2개일때는 setter, 하나일때는 getter와 같음 보통 일반적으로 0개일때는 겟, 1일때는 셋임.
+            console.log($('h1').css(['color','background-color'])); //[] 배열로 다중 get할 수 있다. (오브젝트로 나옴)
+            document.querySelector('h1').style.backgroundColor="blue"; console.log(document.querySelector('h1').style.backgroundColor); //css로 준 값도 받을 수 있음. 없으면 ''값
+            console.log($('h1').css('font-size')); //아예 값을 주지 않았는데도 값을 찾아서 가져옴
+            //jQuery 1.4버전
+            // $('ul>li').css('background-color',function(idx,val){
+          //      var arr=['red','green','blue','gray','yellow'];
+          //      return arr[idx];*/ //각 li 마다 색값을 줌(배열 0,1,2처럼)
+         //       console.log(idx,val);
+         //       return 'rgb('+255/5*idx+',0,0)';
+         //   }); 
+            $('ul>li').css({'color':'red','background-color':'gray'});
+            $('form>div').children().first().filter('label').css('background-color','gray');
+            $('form>div>label:first-child').css('background-color','gray');
+            $(':checkbox').next().css('background-color','gray');
+            
+        };
+    </script>
+</head>
+
+<body>
+    <h1>jQuery css제어</h1>
+    <p>css메서드를 이용한 dom UI제어</p>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+    <ol>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ol>
+    <form>
+        <div>
+            <label>id</label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label>pw</label>
+            <input type="password"/>
+        </div>
+        <div>
+            <input type="checkbox"/>
+            <label>box1</label>
+            <input type="checkbox"/>
+            <label>box2</label>
+        </div>
+        <div>
+            <input type="radio" name="ra"/>
+            <label>ra1</label>
+            <input type="radio" name="ra"/>
+            <label>ra2</label>
+        </div>
+        <div>
+            <textarea></textarea>
+        </div>
+        <div>
+            <input type="submit" value="submit"/>
+            <input type="reset" value="reset"/>
+            <button>btn</button>
+        </div>
+    </form>
+</body>
+
+</html>

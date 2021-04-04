@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            setInterval(loop,1000);
+            $('h1').css('color','red').css('backgroud-color','gray').next().css('color','gray');
+            //$('li').first().find('a').removeAttr('href');
+            //$('li').first().find('a').attr('href','ex06.html');
+            //$('h1').toggleClass('cl01'); 해당 클래스가 없으면 붙여주고 있으면 삭제해줌!
+            //setter는 리턴값 jQuery, getter는 String
+            $('a').attr('href',function(idx,val){
+               console.log(idx,val);
+            });
+            $('h1').html(); //innerHTML과 같음
+            $('h1').html('바꿈');
+            $('ul').html('<li><a>edit1</a></li><li><a>edit2</a></li><li><a>edit3</a></li>')
+            $('h1').text();
+            $('ul').text();
+            $('body').text();
+            $('body').html();
+        };
+        var i=0;
+        function loop(){
+            if(i<6)i++;
+            else i=1;
+            $('img').attr('src','imgs/big0'+i+'.jpg');
+            
+        }
+       
+    </script>
+</head>
+
+<body>
+    <h1>jQuery 속성제어</h1>
+    <p>dom 속성제어</p>
+    <ul>
+        <li><a href="ex06.html">ex06</a></li>
+        <li><a href="http://naver.com">naver</a></li>
+        <li><a href="http://google.com">google</a></li>
+    </ul>
+    <div>
+        <img src="imgs/big01.jpg"/>
+    </div>
+    <ol>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ol>
+    <form>
+        <div>
+            <label>id</label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label>pw</label>
+            <input type="password"/>
+        </div>
+        <div>
+            <input type="checkbox" checked="checked"/>
+            <label>box1</label>
+            <input type="checkbox"/>
+            <label>box2</label>
+        </div>
+        <div>
+            <input type="radio" name="ra"/>
+            <label>ra1</label>
+            <input type="radio" name="ra"/>
+            <label>ra2</label>
+        </div>
+        <div>
+            <select>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="submit"/>
+            <input type="reset" value="reset"/>
+            <button>btn</button>
+        </div>
+    </form>
+</body>
+
+</html>
